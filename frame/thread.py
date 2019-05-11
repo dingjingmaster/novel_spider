@@ -11,7 +11,6 @@ class ThreadPool:
     _spider = []
     _thread_count = 10
     _mutex = threading.Lock()
-    _condition = threading.Condition(threading.Lock())
 
     def set_pool_num(self, num: int):
         if num > self._thread_count:
@@ -21,33 +20,26 @@ class ThreadPool:
         return self
 
     def set_spider(self, sp: Spider):
-        self._condition.acquire()
-        if len(self._spider) > 10:
-            self._condition.wait()
-        else:
-            self._mutex.acquire()
-            self._spider.append(sp)
-            self._mutex.release()
-            self._condition.notify()
+        self._mutex.acquire()
+        self._spider.append(sp)
+        self._mutex.release()
 
     def working(self, thread_id: int):
         log.info('spider id: ' + str(thread_id) + ' 启动成功!')
         while True:
-            if self._condition.acquire():
-                self._mutex.acquire()
+            if self._mutex.acquire():
                 spider: Spider = None
                 if len(self._spider) > 0:
                     spider = self._spider.pop()
                     log.info('成功获取spider: ' + spider.name)
                 self._mutex.release()
                 if spider is None:
-                    self._condition.wait()
+                    log.info('任务执行完毕! spider id: ' + str(thread_id) + ' 开始退出...')
+                    break
                 else:
                     log.info('spider: ' + spider.name + '开始执行!')
                     spider.run()
                     log.info('spider: ' + spider.name + '执行完成!')
-                    self._condition.notify()
-                self._condition.release()
 
     def run(self):
         """ 先添加，也可不添加 """

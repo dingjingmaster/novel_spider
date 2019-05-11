@@ -1,25 +1,22 @@
 #!/usr/bin/env python3.6
 # -*- encoding=utf8 -*-
+from url.ccuu234 import cc_uu234
 from frame.log.log import log
 from frame.thread import ThreadPool
 from frame.spider_factory import SpiderFactory
 
-MAX_THREADS = 10
-
-
-def create_new_thread():
-    pass
-
-
-def drop_thread():
-    pass
-
 
 if __name__ == '__main__':
     log.info('抓取任务开始执行...')
-    spider = SpiderFactory()
+    spiderFactory = SpiderFactory()
     tpool = ThreadPool()
-    tpool.set_spider(spider.get_spider('34fd_com'))
+
+    """ www.uu234.cc """
+    ccuu234 = spiderFactory.get_spider('cc_uu234')
+    ccuu234.set_book_url(cc_uu234)
+    tpool.set_spider(ccuu234)
+
+    """ 开始运行 """
     tpool.run()
     log.info('抓取任务完成!')
 

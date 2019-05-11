@@ -7,4 +7,6 @@ from frame.novel_parser.feidu_parser import FeiduParser
 
 class FeiduSpider(Spider):
     def __init__(self):
+        self.name = ''
+        self.webURL = ''
         log.info('name:' + self.name + ' url:' + self.webURL + ' spider安装成功!')

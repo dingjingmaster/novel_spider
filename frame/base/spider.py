@@ -12,13 +12,23 @@
 
 class Spider(object):
     def __init__(self):
-        self.name = 'base_parser'
+        self.name = 'base_spider'
+        self.webURL = ''
+
+    def set_book_url(self, book_url: dict):
+        if len(book_url) > 0:
+            self.bookList = book_url
+
+    def set_seed_url(self, url: str):
+        if '' != url and url is not None:
+            self.startURL = url
 
     def run(self):
-        print('ok')
+        pass
+
     name = ''
     webURL = ''
-    bookList = []
+    bookList = {}
     startURL = ''
 
 
