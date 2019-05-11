@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bba8c85-4912-46d7-aadb-ae5c539d773d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frame/common/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frame/common/novelbean.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frame/common/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frame/common/novel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frame/base/spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/base/spider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frame/spider_factory.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/spider_factory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frame/spiders/ccuu234.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/spiders/ccuu234.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frame/spiders/feidu_34fd.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/spiders/feidu_34fd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frame/thread.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/thread.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/url/ccuu234.py" beforeDir="false" afterPath="$PROJECT_DIR$/url/ccuu234.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frame/common/novelbean.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/common/novelbean_bak.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,8 +50,28 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="190">
-                    <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+                  <state relative-caret-position="75">
+                    <caret line="17" column="87" lean-forward="true" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="87" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/frame/common/novelbean_bak.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="209">
+                    <caret line="199" column="25" lean-forward="true" selection-start-line="199" selection-start-column="25" selection-end-line="199" selection-end-column="25" />
+                    <folding>
+                      <element signature="e#47#56#0" expanded="true" />
+                    </folding>
                   </state>
                 </provider>
               </entry>
@@ -102,23 +111,53 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frame/common/novelbean.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frame/common/novel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="266">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#47#56#0" expanded="true" />
+                <element signature="e#272#3435#0" />
+                <element signature="e#285#737#0" />
+                <element signature="e#833#849#0" />
+                <element signature="e#885#964#0" />
+                <element signature="e#1002#1019#0" />
+                <element signature="e#1099#1186#0" />
+                <element signature="e#1226#1245#0" />
+                <element signature="e#1308#1531#0" />
+                <element signature="e#1573#1594#0" />
+                <element signature="e#1543#1588#0" />
+                <element signature="e#1588#1609#0" />
+                <element signature="e#1677#1929#0" />
+                <element signature="e#1882#1903#0" />
+                <element signature="e#2017#2087#0" />
+                <element signature="e#2173#2194#0" />
+                <element signature="e#2306#2386#0" />
+                <element signature="e#2456#2485#0" />
+                <element signature="e#2313#2382#0" />
+                <element signature="e#2434#2454#0" />
+                <element signature="e#2503#2527#0" />
+                <element signature="e#2515#2596#0" />
+                <element signature="e#3067#3173#0" />
+                <element signature="e#3221#3309#0" />
+                <element signature="e#3363#3435#0" />
+                <element signature="e#3336#4871#0" />
+                <element signature="e#3368#3604#0" />
+                <element signature="e#3650#3718#0" />
+                <element signature="e#3767#3783#0" />
+                <element signature="e#3650#3718#0" />
+                <element signature="e#3767#3783#0" />
+                <element signature="e#3996#4070#0" />
+                <element signature="e#4121#4139#0" />
+                <element signature="e#4198#4281#0" />
+                <element signature="e#4338#4362#0" />
+                <element signature="e#4407#4502#0" />
+                <element signature="e#1166#1325#0" />
+                <element signature="e#1418#1560#0" />
+                <element signature="e#1647#1778#0" />
+                <element signature="e#1680#1831#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sql/novel.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -169,12 +208,14 @@
         <option value="$PROJECT_DIR$/frame/common/novelbean.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql" />
         <option value="$PROJECT_DIR$/sql/novel.sql" />
+        <option value="$PROJECT_DIR$/frame/common/novelbean_bak.py" />
+        <option value="$PROJECT_DIR$/frame/common/novel.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="511" />
-    <option name="y" value="129" />
+    <option name="x" value="338" />
+    <option name="y" value="117" />
     <option name="width" value="1569" />
     <option name="height" value="915" />
   </component>
@@ -196,7 +237,13 @@
             <path>
               <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
               <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
-              <item name="sql" type="462c0819:PsiDirectoryNode" />
+              <item name="frame" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
+              <item name="frame" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -303,15 +350,15 @@
       <updated>1557466700491</updated>
       <workItem from="1557466719352" duration="23281000" />
       <workItem from="1557492711851" duration="533000" />
-      <workItem from="1557539392764" duration="3940000" />
+      <workItem from="1557539392764" duration="7226000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27754000" />
+    <option name="totallyTimeSpent" value="31040000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="511" y="129" width="1569" height="915" extended-state="0" />
+    <frame x="338" y="117" width="1569" height="915" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20808482" />
@@ -319,7 +366,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3277849" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3277849" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -530,27 +577,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frame/common/novelbean.py">
+    <entry file="file://$PROJECT_DIR$/sql/novel.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="385">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="17" column="87" lean-forward="true" selection-start-line="17" selection-start-column="77" selection-end-line="17" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frame/common/novelbean_bak.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="199" column="25" lean-forward="true" selection-start-line="199" selection-start-column="25" selection-end-line="199" selection-end-column="25" />
           <folding>
             <element signature="e#47#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql">
+    <entry file="file://$PROJECT_DIR$/frame/common/novel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="44" lean-forward="true" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sql/novel.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="266">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#47#56#0" expanded="true" />
+            <element signature="e#272#3435#0" />
+            <element signature="e#285#737#0" />
+            <element signature="e#833#849#0" />
+            <element signature="e#885#964#0" />
+            <element signature="e#1002#1019#0" />
+            <element signature="e#1099#1186#0" />
+            <element signature="e#1226#1245#0" />
+            <element signature="e#1308#1531#0" />
+            <element signature="e#1573#1594#0" />
+            <element signature="e#1543#1588#0" />
+            <element signature="e#1588#1609#0" />
+            <element signature="e#1677#1929#0" />
+            <element signature="e#1882#1903#0" />
+            <element signature="e#2017#2087#0" />
+            <element signature="e#2173#2194#0" />
+            <element signature="e#2306#2386#0" />
+            <element signature="e#2456#2485#0" />
+            <element signature="e#2313#2382#0" />
+            <element signature="e#2434#2454#0" />
+            <element signature="e#2503#2527#0" />
+            <element signature="e#2515#2596#0" />
+            <element signature="e#3067#3173#0" />
+            <element signature="e#3221#3309#0" />
+            <element signature="e#3363#3435#0" />
+            <element signature="e#3336#4871#0" />
+            <element signature="e#3368#3604#0" />
+            <element signature="e#3650#3718#0" />
+            <element signature="e#3767#3783#0" />
+            <element signature="e#3650#3718#0" />
+            <element signature="e#3767#3783#0" />
+            <element signature="e#3996#4070#0" />
+            <element signature="e#4121#4139#0" />
+            <element signature="e#4198#4281#0" />
+            <element signature="e#4338#4362#0" />
+            <element signature="e#4407#4502#0" />
+            <element signature="e#1166#1325#0" />
+            <element signature="e#1418#1560#0" />
+            <element signature="e#1647#1778#0" />
+            <element signature="e#1680#1831#0" />
+          </folding>
         </state>
       </provider>
     </entry>

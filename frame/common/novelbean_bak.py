@@ -24,17 +24,6 @@ class NovelBean:
 		self._desc = ''                             # 描述 ok
 		self._status = ''                           # 连载状态 ok
 
-	class NovelInfo:
-		def __init__(self):
-			pass
-
-
-
-
-
-
-
-
 	def saveInfo(self, path: str):
 		if (self._name == "") or (len(self._chapters) != len(self._chapterIndex)):
 			logging.error(self._bookUrl + '书名为空')
@@ -177,14 +166,6 @@ class NovelBean:
 			return None
 		return self
 
-	def setBookURL(self, url):
-		if None is not url:
-			self._bookUrl = url
-		return self
-
-	def getBookURL(self):
-		return self._bookUrl
-
 	def setChapterURL(self, url):
 		if None is not url:
 			self._chapterBaseURL = url
@@ -204,43 +185,6 @@ class NovelBean:
 			k = arr[len(arr) - 1]
 		return os.path.exists(path + '/' + self._encode(self._bookUrl) + '/' + self._name + k)
 
-	def setName(self, name):
-		if None is not name:
-			self._name = normName(name)
-		return self
-
-	def getName(self):
-		return self._name
-
-	def setAuthor(self, author):
-		if None is not author:
-			self._author = normAuthor(author)
-		return self
-
-	def getAuthor(self):
-		return self._author
-
-	def setCategory(self, cate):
-		if None is not cate:
-			arr = cate.split(']')
-			cate = arr[0]
-			arr = cate.split('[')
-			if len(arr) >= 2:
-				cate = arr[1]
-			self._category = normTag(cate)
-		return self
-
-	def getCategory(self):
-		return self._category
-
-	def setImgUrl(self, url: str):
-		if None is not url:
-			self._imgUrl = url
-		return self
-
-	def getImgUrl(self):
-		return self._imgUrl
-
 	def getImgeLocal(self):
 		base, name = os.path.split(self._imgLocal)
 		return name, self._imgLocal
@@ -255,55 +199,6 @@ class NovelBean:
 
 	def getChapter(self):
 		return self._chapterIndex, self._chapters, self._content
-
-	def setImgContent(self, content):
-		if None is not content:
-			self._imgContent = content
-		return self
-
-	def setDesc (self, desc):
-		self._desc = desc
-
-	def getDesc(self):
-		return self._desc
-
-	def setStatus(self, status: str):
-		if re.search(r'(完结|完成|结束|大结局|完本|完|结)', status):
-			self._status = '完结'
-		else:
-			self._status = '连载'
-
-	def getStatus(self):
-		return self._status
-
-	def _encode(self, name: str)->str:
-		if None is name or '' == name:
-			return ''
-		m2 = hashlib.md5()
-		m2.update(base64.b64encode(name.encode('utf8')))
-		return m2.hexdigest()
-
-
-def normName(name: str) ->str:
-	# 去掉所有非法字符
-	name = re.sub(r'[\\/:*?"<>|.]', '', name)
-	if None is name:
-		name = ''
-	return name
-
-
-def normAuthor(author: str) ->str:
-	author = re.sub(r'[\\/:*?"<>|.]', '', author)
-	if author is None:
-		author = ''
-	return author
-
-
-def normTag(tag: str) ->str:
-	tag = re.sub(r'[\\/:*?"<>|.\[\]]', '', tag)
-	if tag is None:
-		tag = ''
-	return tag
 
 
 def ifExit(path)-> bool:
