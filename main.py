@@ -20,5 +20,4 @@ if __name__ == '__main__':
     tpool.run()
     log.info('抓取任务完成!')
 
-
     exit(0)
