@@ -10,6 +10,7 @@ from frame.common.param import *
 class Mysql(object):
     _mutex = threading.Lock()
     _host = ''
+    _db = ''
     _port = 3306
     _user = ''
     _password = ''
@@ -23,6 +24,10 @@ class Mysql(object):
         self._port = port
         return self
 
+    def set_database(self, db: str):
+        self._db = db
+        return self
+
     def set_usr(self, usr: str):
         self._user = usr
         return self
@@ -33,13 +38,42 @@ class Mysql(object):
 
     def connect(self):
         self._connect = pymysql.Connect(
-            host=MYSQL_HOST,
-            port=MYSQL_PORT,
-            user=MYSQL_USER,
-            passwd=MYSQL_PASSWORD,
+            host=self._host,
+            port=self._port,
+            user=self._user,
+            db=self._db,
+            passwd=self._password,
             charset='utf8'
         )
         return self
+
+    def novel_info_exist(self, url: str) -> bool:
+        flag = False
+        msql = 'SELECT `nid` FROM `novel_info` WHERE book_url = "{url}";'.format(self._connect.escape_string(url))
+        cursor = self._connect.cursor()
+        try:
+            cursor.execute(msql)
+            result = cursor.fetchone()
+            if None is not result:
+                flag = True
+        except:
+            flag = False
+            log.error('SQL 执行错误')
+        return flag
+
+    def novel_chapter_exist(self, url: str) -> bool:
+        flag = False
+        msql = 'SELECT `nid` FROM `novel_chapter` WHERE chapter_url = "{url}";'.format(self._connect.escape_string(url))
+        cursor = self._connect.cursor()
+        try:
+            cursor.execute(msql)
+            result = cursor.fetchone()
+            if None is not result:
+                flag = True
+        except:
+            flag = False
+            log.error('SQL 执行错误')
+        return flag
 
     def get_novel_info_by_url(self, url):
         flag = False
@@ -48,7 +82,7 @@ class Mysql(object):
             0, '', '', '', '', 0, '', '', '', '', 0, 0, 0, 0, 0
         msql = 'SELECT `nid`, `name`, `author`, `category`, `describe`, `complete`, `book_url`,' \
                '`img_url`, `img_content`, `chapter_base_url`, `create_time`, `update_time`,' \
-               '`hot`, `cp`, `lock` WHERE book_url=' + self._connect.escape_string(url)
+               '`hot`, `cp`, `lock` FROM `novel_info` WHERE book_url=' + self._connect.escape_string(url)
         try:
             self._mutex.acquire()
             curosr = self._connect.cursor()
@@ -74,7 +108,7 @@ class Mysql(object):
             0, '', '', '', '', 0, '', '', '', '', 0, 0, 0, 0, 0
         msql = 'SELECT `nid`, `name`, `author`, `category`, `describe`, `complete`, `book_url`,' \
                '`img_url`, `img_content`, `chapter_base_url`, `create_time`, `update_time`,' \
-               '`hot`, `cp`, `lock` WHERE nid=' + self._connect.escape_string(str(novel_id))
+               '`hot`, `cp`, `lock` FROM `novel_info` WHERE nid=' + self._connect.escape_string(str(novel_id))
         try:
             self._mutex.acquire()
             curosr = self._connect.cursor()
@@ -96,7 +130,7 @@ class Mysql(object):
     def get_novel_chapters_by_nid(self, novel_id):
         result_list = []
         msql = 'SELECT `cid`, `nid`, `index`, `chapter_url`, `name`, `content`, `update_time`,' \
-               '`lock` WHERE nid = ' + self._connect.escape_string(str(novel_id))
+               '`lock` FROM `novel_chapter` WHERE nid = ' + self._connect.escape_string(str(novel_id))
         try:
             self._mutex.acquire()
             curosr = self._connect.cursor()
@@ -118,7 +152,7 @@ class Mysql(object):
                           book_url, img_url, img_content, chapter_base_url):
         flag = False
         novel_id = 0
-        msql = 'INSERT INTO novel_info(`name`, `author`, `category`, `describe`, `complete`, `book_url`, `img_url`,\
+        msql = 'INSERT INTO `novel_info` (`name`, `author`, `category`, `describe`, `complete`, `book_url`, `img_url`,\
          `img_content`, `chapter_base_url`) VALUES ("{name}", "{author}", "{category}", "{describe}", "{complete}",\
          "{book_url}", "{img_url}", "{chapter_base_url}");'.format(
             self._connect.escape_string(name), self._connect.escape_string(author),\
@@ -149,8 +183,8 @@ class Mysql(object):
             return False
         curosr = self._connect.cursor()
         for nid, index, chapter_url, name, content in chapter_list:
-            msql = 'INSERT INTO novel_chapter(`nid`, `index`, `chapter_url`, `name`, `content`, `update_time`)' \
-                   ' VALUES ("{nid}", "{index}", "{chapter_url}", "{name}", "{content}", "{update_time}");'.format( \
+            msql = 'INSERT INTO `novel_chapter` (`nid`, `index`, `chapter_url`, `name`, `content`, `update_time`)' \
+                   ' VALUES ("{nid}", "{index}", "{chapter_url}", "{name}", "{content}", "{update_time}");'.format(\
                 self._connect.escape_string(str(novel_id)), self._connect.escape_string(str(index)),
                 self._connect.escape_string(chapter_url), self._connect.escape_string(name),
                 self._connect.escape_string(str(content)), self._connect.escape_string(str(time.time())))
@@ -160,7 +194,6 @@ class Mysql(object):
                 return False
         return True
 
-    """ 更新书籍信息 """
 
 
 
