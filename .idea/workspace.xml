@@ -48,8 +48,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="417">
-                    <caret line="26" column="16" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="16" />
+                  <state relative-caret-position="76">
+                    <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
                   </state>
                 </provider>
               </entry>
@@ -74,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+            <state relative-caret-position="399">
+              <caret line="174" column="100" lean-forward="true" selection-start-line="174" selection-start-column="100" selection-end-line="174" selection-end-column="100" />
               <folding>
                 <element signature="e#46#52#0" expanded="true" />
               </folding>
@@ -151,19 +151,19 @@
         <option value="$PROJECT_DIR$/frame/common/get.py" />
         <option value="$PROJECT_DIR$/frame/spiders/ccuu234.py" />
         <option value="$PROJECT_DIR$/frame/common/novelbean.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql" />
         <option value="$PROJECT_DIR$/sql/novel.sql" />
         <option value="$PROJECT_DIR$/frame/common/novelbean_bak.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/frame/common/param.py" />
         <option value="$PROJECT_DIR$/frame/common/novel.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql" />
         <option value="$PROJECT_DIR$/frame/common/mysql.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="210" />
-    <option name="y" value="89" />
+    <option name="x" value="192" />
+    <option name="y" value="41" />
     <option name="width" value="1569" />
     <option name="height" value="915" />
   </component>
@@ -299,23 +299,23 @@
       <workItem from="1557466719352" duration="23281000" />
       <workItem from="1557492711851" duration="533000" />
       <workItem from="1557539392764" duration="7226000" />
-      <workItem from="1557546704784" duration="8086000" />
+      <workItem from="1557546704784" duration="10495000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39126000" />
+    <option name="totallyTimeSpent" value="41535000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="210" y="89" width="1569" height="915" extended-state="0" />
+    <frame x="192" y="41" width="1569" height="915" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21073559" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21073559" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3277849" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3277849" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -330,7 +330,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.19880715" />
+      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.19880715" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,13 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="26" column="16" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frame/common/novel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -565,10 +558,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+        <state relative-caret-position="399">
+          <caret line="174" column="100" lean-forward="true" selection-start-line="174" selection-start-column="100" selection-end-line="174" selection-end-column="100" />
           <folding>
             <element signature="e#46#52#0" expanded="true" />
           </folding>

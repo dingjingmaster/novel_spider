@@ -47,6 +47,20 @@ class Mysql(object):
         )
         return self
 
+    def novel_info_is_locked_by_url(self, url: str) -> bool:
+        flag = False
+        msql = 'SELECT `nid`, `lock` FROM `novel_info` WHERE book_url = "{url}";'.format(self._connect.escape_string(url))
+        cursor = self._connect.cursor()
+        try:
+            cursor.execute(msql)
+            result = cursor.fetchone()
+            if None is not result:
+                if int(result[1]) == 1:
+                    flag = True
+        except Exception:
+            log.error('SQL 执行错误')
+        return flag
+
     def novel_info_exist(self, url: str) -> bool:
         flag = False
         msql = 'SELECT `nid` FROM `novel_info` WHERE book_url = "{url}";'.format(self._connect.escape_string(url))
@@ -56,7 +70,7 @@ class Mysql(object):
             result = cursor.fetchone()
             if None is not result:
                 flag = True
-        except:
+        except Exception:
             flag = False
             log.error('SQL 执行错误')
         return flag
@@ -70,17 +84,17 @@ class Mysql(object):
             result = cursor.fetchone()
             if None is not result:
                 flag = True
-        except:
+        except Exception:
             flag = False
             log.error('SQL 执行错误')
         return flag
 
     def get_novel_info_by_url(self, url):
         flag = False
-        nid, name, author, category, describe, complete, book_url, img_url, img_content,\
+        nid, name, author, category, describe, complete, parser, book_url, img_url, img_content,\
         chapter_base_url, create_time, update_time, hot, cp, lock = \
-            0, '', '', '', '', 0, '', '', '', '', 0, 0, 0, 0, 0
-        msql = 'SELECT `nid`, `name`, `author`, `category`, `describe`, `complete`, `book_url`,' \
+            0, '', '', '', '', 0, '', '', '', '', '', 0, 0, 0, 0, 0
+        msql = 'SELECT `nid`, `name`, `author`, `category`, `describe`, `complete`, `parser`, `book_url`,' \
                '`img_url`, `img_content`, `chapter_base_url`, `create_time`, `update_time`,' \
                '`hot`, `cp`, `lock` FROM `novel_info` WHERE book_url=' + self._connect.escape_string(url)
         try:
@@ -91,22 +105,22 @@ class Mysql(object):
             self._mutex.release()
             if None is not result:
                 flag = True
-                nid, name, author, category, describe, complete, book_url, img_url, img_content,\
+                nid, name, author, category, describe, complete, parser, book_url, img_url, img_content,\
                 chapter_base_url, create_time, update_time, hot, cp, lock = \
                 int(result[0]), str(result[1]), str(result[2]), str(result[3]), str(result[4]),\
-                int(result[5]), str(result[6]), str(result[7]), bytes(result[8]), str(result[9]), \
-                int(result[10]), int(result[11]), int(result[12]), int(result[13]), int(result[14])
+                int(result[5]), str(result[6]), str(result[7]), str(result[8]), bytes(result[9]),\
+                str(result[10]), int(result[11]), int(result[12]), int(result[13]), int(result[14]), int(result[15])
         except Exception:
             log.error('MySQL 执行错误!')
-        return (flag, nid, name, author, category, describe, complete, book_url, img_url, img_content,
+        return (flag, nid, name, author, category, describe, complete, parser, book_url, img_url, img_content,
                 chapter_base_url, create_time, update_time, hot, cp, lock)
 
     def get_novel_info_by_nid(self, novel_id):
         flag = False
-        nid, name, author, category, describe, complete, book_url, img_url, img_content, chapter_base_url, \
+        nid, name, author, category, describe, complete, parser, book_url, img_url, img_content, chapter_base_url, \
         create_time, update_time, hot, cp, lock = \
-            0, '', '', '', '', 0, '', '', '', '', 0, 0, 0, 0, 0
-        msql = 'SELECT `nid`, `name`, `author`, `category`, `describe`, `complete`, `book_url`,' \
+            0, '', '', '', '', 0, '', '', '', '', '', 0, 0, 0, 0, 0
+        msql = 'SELECT `nid`, `name`, `author`, `category`, `describe`, `complete`, `parser`, `book_url`,' \
                '`img_url`, `img_content`, `chapter_base_url`, `create_time`, `update_time`,' \
                '`hot`, `cp`, `lock` FROM `novel_info` WHERE nid=' + self._connect.escape_string(str(novel_id))
         try:
@@ -117,14 +131,14 @@ class Mysql(object):
             self._mutex.release()
             if None is not result:
                 flag = True
-                nid, name, author, category, describe, complete, book_url, img_url, img_content, chapter_base_url, \
-                create_time, update_time, hot, cp, lock = \
+                nid, name, author, category, describe, complete, parser, book_url, img_url, img_content,\
+                chapter_base_url, create_time, update_time, hot, cp, lock = \
                     int(result[0]), str(result[1]), str(result[2]), str(result[3]), str(result[4]), \
-                    int(result[5]), str(result[6]), str(result[7]), bytes(result[8]), str(result[9]), \
-                    int(result[10]), int(result[11]), int(result[12]), int(result[13]), int(result[14])
+                    int(result[5]), str(result[6]), str(result[7]), str(result[8]), bytes(result[9]),\
+                    str(result[10]), int(result[11]), int(result[12]), int(result[13]), int(result[14]), int(result[15])
         except Exception:
             log.error('MySQL 执行错误!')
-        return (flag, nid, name, author, category, describe, complete, book_url, img_url, img_content,
+        return (flag, nid, name, author, category, describe, complete, parser, book_url, img_url, img_content,
                 chapter_base_url, create_time, update_time, hot, cp, lock)
 
     def get_novel_chapters_by_nid(self, novel_id):
@@ -148,16 +162,16 @@ class Mysql(object):
         for i in result_list:
             yield i
 
-    def insert_novel_info(self, name, author, category, describe, complete,\
+    def insert_novel_info(self, name, author, category, describe, complete, parser,\
                           book_url, img_url, img_content, chapter_base_url):
         flag = False
         novel_id = 0
-        msql = 'INSERT INTO `novel_info` (`name`, `author`, `category`, `describe`, `complete`, `book_url`, `img_url`,\
-         `img_content`, `chapter_base_url`) VALUES ("{name}", "{author}", "{category}", "{describe}", "{complete}",\
-         "{book_url}", "{img_url}", "{chapter_base_url}");'.format(
-            self._connect.escape_string(name), self._connect.escape_string(author),\
-            self._connect.escape_string(category), self._connect.escape_string(describe),\
-            complete, self._connect.escape_string(book_url), self._connect.escape_string(img_url),\
+        msql = 'INSERT INTO `novel_info` (`name`, `author`, `category`, `describe`, `complete`, `parser`, `book_url`,' \
+               ' `img_url`, `img_content`, `chapter_base_url`) VALUES ("{name}", "{author}", "{category}",' \
+               ' "{describe}", "{complete}", "{parser}", "{book_url}", "{img_url}", "{chapter_base_url}");'.format(
+            self._connect.escape_string(name), self._connect.escape_string(author), self._connect.escape_string(category),\
+            self._connect.escape_string(describe), complete, self._connect.escape_string(parser),\
+            self._connect.escape_string(book_url), self._connect.escape_string(img_url),\
             self._connect.escape_string(img_content), self._connect.escape_string(chapter_base_url))
         try:
             self._mutex.acquire()
@@ -193,6 +207,206 @@ class Mysql(object):
             except Exception:
                 return False
         return True
+
+    def update_novel_info_update_by_url(self, url: str, update: int):
+        flag = False
+        can = self.novel_info_is_locked_by_url(url)
+        if can:
+            log.info('书籍信息被锁!不可修改!')
+            return True
+        msql = 'UPDATE `novel_info` SET update_time = "{update_time}" WHERE book_url = "{book_url}";'.format(
+            self._connect.escape_string(str(update)), self._connect.escape_string(url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            novel_id = int(curosr.lastrowid)
+            self._mutex.release()
+            if novel_id > 0:
+                flag = True
+                log.info('更新小说信息 -- 最后更新时间!')
+        except Exception:
+            flag = False
+            log.error('SQL执行失败')
+        return flag
+
+    def update_novel_info_name_by_url(self, url: str, name: str):
+        flag = False
+        can = self.novel_info_is_locked_by_url(url)
+        if can:
+            log.info('书籍信息被锁!不可修改!')
+            return True
+        msql = 'UPDATE `novel_info` SET name = "{name}" WHERE book_url = "{book_url}";'.format(
+            self._connect.escape_string(str(name)), self._connect.escape_string(url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            novel_id = int(curosr.lastrowid)
+            self._mutex.release()
+            if novel_id > 0:
+                flag = True
+                log.info('更新小说信息 -- 最后更新时间!')
+        except Exception:
+            flag = False
+            log.error('SQL执行失败')
+        return flag
+
+    def update_novel_info_author_by_url(self, url: str, author: str):
+        flag = False
+        can = self.novel_info_is_locked_by_url(url)
+        if can:
+            log.info('书籍信息被锁!不可修改!')
+            return True
+        msql = 'UPDATE `novel_info` SET author = "{author}" WHERE book_url = "{book_url}";'.format(
+            self._connect.escape_string(str(author)), self._connect.escape_string(url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            novel_id = int(curosr.lastrowid)
+            self._mutex.release()
+            if novel_id > 0:
+                flag = True
+                log.info('更新小说信息 -- 最后更新时间!')
+        except Exception:
+            flag = False
+            log.error('SQL执行失败')
+        return flag
+
+    def update_novel_info_category_by_url(self, url: str, category: str):
+        flag = False
+        can = self.novel_info_is_locked_by_url(url)
+        if can:
+            log.info('书籍信息被锁!不可修改!')
+            return True
+        msql = 'UPDATE `novel_info` SET category = "{category}" WHERE book_url = "{book_url}";'.format(
+            self._connect.escape_string(str(category)), self._connect.escape_string(url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            novel_id = int(curosr.lastrowid)
+            self._mutex.release()
+            if novel_id > 0:
+                flag = True
+                log.info('更新小说信息 -- 最后更新时间!')
+        except Exception:
+            flag = False
+            log.error('SQL执行失败')
+        return flag
+
+    def update_novel_info_describe_by_url(self, url: str, describe: str):
+        flag = False
+        can = self.novel_info_is_locked_by_url(url)
+        if can:
+            log.info('书籍信息被锁!不可修改!')
+            return True
+        msql = 'UPDATE `novel_info` SET describe = "{describe}" WHERE book_url = "{book_url}";'.format(
+            self._connect.escape_string(str(describe)), self._connect.escape_string(url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            novel_id = int(curosr.lastrowid)
+            self._mutex.release()
+            if novel_id > 0:
+                flag = True
+                log.info('更新小说信息 -- 最后更新时间!')
+        except Exception:
+            flag = False
+            log.error('SQL执行失败')
+        return flag
+
+    def update_novel_info_complete_by_url(self, url: str, complete: str):
+        flag = False
+        can = self.novel_info_is_locked_by_url(url)
+        if can:
+            log.info('书籍信息被锁!不可修改!')
+            return True
+        msql = 'UPDATE `novel_info` SET complete = "{complete}" WHERE book_url = "{book_url}";'.format(
+            self._connect.escape_string(str(complete)), self._connect.escape_string(url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            novel_id = int(curosr.lastrowid)
+            self._mutex.release()
+            if novel_id > 0:
+                flag = True
+                log.info('更新小说信息 -- 最后更新时间!')
+        except Exception:
+            flag = False
+            log.error('SQL执行失败')
+        return flag
+
+    def update_novel_info_img_url_by_url(self, url: str, img_url: str):
+        flag = False
+        can = self.novel_info_is_locked_by_url(url)
+        if can:
+            log.info('书籍信息被锁!不可修改!')
+            return True
+        msql = 'UPDATE `novel_info` SET img_url = "{img_url}" WHERE book_url = "{book_url}";'.format(
+            self._connect.escape_string(str(img_url)), self._connect.escape_string(url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            novel_id = int(curosr.lastrowid)
+            self._mutex.release()
+            if novel_id > 0:
+                flag = True
+                log.info('更新小说信息 -- 最后更新时间!')
+        except Exception:
+            flag = False
+            log.error('SQL执行失败')
+        return flag
+
+    def update_novel_info_img_content_by_url(self, url: str, img_content: str):
+        flag = False
+        can = self.novel_info_is_locked_by_url(url)
+        if can:
+            log.info('书籍信息被锁!不可修改!')
+            return True
+        msql = 'UPDATE `novel_info` SET img_content = "{img_content}" WHERE book_url = "{book_url}";'.format(
+            self._connect.escape_string(str(img_content)), self._connect.escape_string(url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            novel_id = int(curosr.lastrowid)
+            self._mutex.release()
+            if novel_id > 0:
+                flag = True
+                log.info('更新小说信息 -- 最后更新时间!')
+        except Exception:
+            flag = False
+            log.error('SQL执行失败')
+        return flag
+
+    def update_novel_info_chapter_base_url_by_url(self, url: str, chapter_base_url: str):
+        flag = False
+        can = self.novel_info_is_locked_by_url(url)
+        if can:
+            log.info('书籍信息被锁!不可修改!')
+            return True
+        msql = 'UPDATE `novel_info` SET chapter_base_url = "{chapter_base_url}" WHERE book_url = "{book_url}";'.format(
+            self._connect.escape_string(str(chapter_base_url)), self._connect.escape_string(url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            novel_id = int(curosr.lastrowid)
+            self._mutex.release()
+            if novel_id > 0:
+                flag = True
+                log.info('更新小说信息 -- 最后更新时间!')
+        except Exception:
+            flag = False
+            log.error('SQL执行失败')
+        return flag
+
+
 
 
 
