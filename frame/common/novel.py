@@ -4,12 +4,15 @@ import re
 import time
 import base64
 import hashlib
+from frame.common.mysql import Mysql
 from frame.log.log import log
+from frame.common.param import *
 
 
 class Novel:
     def __init__(self, url: str):
         self._info = Novel.NovelInfo()
+        self._mysql = Novel.NovelMysql()
         self._chapter = []
         self._url = url
 
@@ -188,6 +191,14 @@ class Novel:
 
         def get_chapter_lock(self):
             return self._lock
+
+    class NovelMysql(Mysql):
+        def __init__(self):
+            self.set_database(MYSQL_NOVEL_DB)\
+                .set_ip(MYSQL_HOST)\
+                .set_port(MYSQL_PORT)\
+                .set_usr(MYSQL_USER)\
+                .set_password(MYSQL_PASSWORD)
 
     @staticmethod
     def norm_name(name: str) -> str:

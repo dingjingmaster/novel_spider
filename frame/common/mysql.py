@@ -4,7 +4,6 @@ import time
 import pymysql
 import threading
 from frame.log.log import log
-from frame.common.param import *
 
 
 class Mysql(object):

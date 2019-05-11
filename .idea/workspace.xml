@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7bba8c85-4912-46d7-aadb-ae5c539d773d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/frame/common/mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/common/mysql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frame/common/novel.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/common/novel.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,11 +72,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="174" column="100" lean-forward="true" selection-start-line="174" selection-start-column="100" selection-end-line="174" selection-end-column="100" />
+            <state relative-caret-position="133">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
               <folding>
                 <element signature="e#46#52#0" expanded="true" />
               </folding>
@@ -92,14 +93,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frame/common/novel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="189" column="29" lean-forward="true" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
+            <state relative-caret-position="154">
+              <caret line="201" lean-forward="true" selection-start-line="201" selection-end-line="201" />
               <folding>
+                <element signature="e#46#55#0" expanded="true" />
                 <element signature="e#296#3326#0" />
                 <element signature="e#3360#4888#0" />
+                <element signature="e#5038#5279#0" />
                 <element signature="e#4953#5080#0" />
                 <element signature="e#5149#5267#0" />
                 <element signature="e#5330#5437#0" />
@@ -155,9 +158,9 @@
         <option value="$PROJECT_DIR$/frame/common/novelbean_bak.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/frame/common/param.py" />
-        <option value="$PROJECT_DIR$/frame/common/novel.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql" />
         <option value="$PROJECT_DIR$/frame/common/mysql.py" />
+        <option value="$PROJECT_DIR$/frame/common/novel.py" />
       </list>
     </option>
   </component>
@@ -299,12 +302,12 @@
       <workItem from="1557466719352" duration="23281000" />
       <workItem from="1557492711851" duration="533000" />
       <workItem from="1557539392764" duration="7226000" />
-      <workItem from="1557546704784" duration="10495000" />
+      <workItem from="1557546704784" duration="11440000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41535000" />
+    <option name="totallyTimeSpent" value="42480000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="192" y="41" width="1569" height="915" extended-state="0" />
@@ -315,7 +318,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3277849" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3277849" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -330,7 +333,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.19880715" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.19880715" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -536,28 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frame/common/param.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frame/common/novel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="189" column="29" lean-forward="true" selection-start-line="189" selection-start-column="29" selection-end-line="189" selection-end-column="29" />
-          <folding>
-            <element signature="e#296#3326#0" />
-            <element signature="e#3360#4888#0" />
-            <element signature="e#4953#5080#0" />
-            <element signature="e#5149#5267#0" />
-            <element signature="e#5330#5437#0" />
-            <element signature="e#5499#5665#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -565,12 +546,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frame/common/param.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="174" column="100" lean-forward="true" selection-start-line="174" selection-start-column="100" selection-end-line="174" selection-end-column="100" />
+        <state relative-caret-position="133">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
           <folding>
             <element signature="e#46#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frame/common/novel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="201" lean-forward="true" selection-start-line="201" selection-end-line="201" />
+          <folding>
+            <element signature="e#46#55#0" expanded="true" />
+            <element signature="e#296#3326#0" />
+            <element signature="e#3360#4888#0" />
+            <element signature="e#5038#5279#0" />
+            <element signature="e#4953#5080#0" />
+            <element signature="e#5149#5267#0" />
+            <element signature="e#5330#5437#0" />
+            <element signature="e#5499#5665#0" />
           </folding>
         </state>
       </provider>
