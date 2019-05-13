@@ -4,9 +4,9 @@ import re
 import time
 import base64
 import hashlib
-from frame.common.mysql import Mysql
 from frame.log.log import log
 from frame.common.param import *
+from frame.common.mysql import Mysql
 
 
 class Novel:
