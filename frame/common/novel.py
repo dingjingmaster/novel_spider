@@ -197,7 +197,6 @@ class Novel:
             self._mysql.insert_novel_chapter(novel_id, index, chapter_url, parser, name, content, update_time)
         return True
 
-
     class NovelInfo:
         def __init__(self):
             self._nid = -1

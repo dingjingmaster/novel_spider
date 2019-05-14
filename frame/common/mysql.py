@@ -267,7 +267,7 @@ class Mysql(object):
                     content=self._connect.escape_string(str(content)), update_time=update_time)
         try:
             self._mutex.acquire()
-            cursor = self._connect.curosr()
+            cursor = self._connect.cursor()
             cursor.execute(msql)
             self._connect.commit()
             self._mutex.release()
