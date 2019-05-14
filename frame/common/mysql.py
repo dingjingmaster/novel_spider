@@ -61,6 +61,21 @@ class Mysql(object):
             log.error('SQL 执行错误: ' + str(e))
         return flag
 
+    def novel_chapter_is_locked_by_url(self, url: str) -> bool:
+        flag = False
+        msql = 'SELECT `cid`, `lock` FROM `novel_chapter` WHERE chapter_url = "{chapter_url}";'\
+            .format(chapter_url=self._connect.escape_string(url))
+        cursor = self._connect.cursor()
+        try:
+            cursor.execute(msql)
+            result = cursor.fetchone()
+            if None is not result:
+                if int(result[1]) == 1:
+                    flag = True
+        except Exception as e:
+            log.error('SQL 执行错误: ' + str(e))
+        return flag
+
     def novel_info_exist(self, url: str) -> bool:
         flag = False
         msql = 'SELECT `nid` FROM `novel_info` WHERE book_url = "{book_url}";'\
@@ -78,8 +93,8 @@ class Mysql(object):
 
     def novel_chapter_exist(self, url: str) -> bool:
         flag = False
-        msql = 'SELECT `nid` FROM `novel_chapter` WHERE chapter_url = "{book_url}";'\
-            .format(book_url=self._connect.escape_string(url))
+        msql = 'SELECT `cid` FROM `novel_chapter` WHERE chapter_url = "{chapter_url}";'\
+            .format(chapter_url=self._connect.escape_string(url))
         cursor = self._connect.cursor()
         try:
             cursor.execute(msql)
@@ -241,27 +256,44 @@ class Mysql(object):
             log.error('MySQL 执行错误: ' + str(e))
         return None
 
-    """ list(nid, index, chapter_url, name, content) """
-    def insert_novel_chapter(self, novel_id, chapter_list):
-        flag, nid, name, author, category, describe, complete, book_url, img_url, img_content,\
-        chapter_base_url, create_time, update_time, hot, cp, lock = self.get_novel_info_by_nid(novel_id)
-        if not flag or nid != novel_id:
-            log.error('MySQL没有查找到指定书籍信息或书籍ID与给定的不符!章节保存失败!')
+    """  """
+    def insert_novel_chapter(self, novel_id: int, index: int, chapter_url: str, parser: str,
+                             name: str, content: str, update_time: int):
+        msql = 'INSERT INTO `novel_chapter` (`nid`, `index`, `chapter_url`,`parser`,\
+            `name`, `content`, `update_time`) VALUES \
+             ("{nid}", "{index}", "{chapter_url}", "{parser}", "{name}", "{content}", "{update_time}");' \
+            .format(nid=novel_id, index=index, chapter_url=self._connect.escape_string(chapter_url),
+                    parser=self._connect.escape_string(parser), name=self._connect.escape_string(name),
+                    content=self._connect.escape_string(str(content)), update_time=update_time)
+        try:
+            self._mutex.acquire()
+            cursor = self._connect.curosr()
+            cursor.execute(msql)
+            self._connect.commit()
+            self._mutex.release()
+            log.info(str(index) + '|' + name + '|' + chapter_url + ' 章节信息插入成功！')
+        except Exception as e:
+            log.error('插入章节' + name + '错误：' + str(e))
             return False
-        curosr = self._connect.cursor()
-        for nid, index, chapter_url, name, content in chapter_list:
-            msql = 'INSERT INTO `novel_chapter` (`nid`, `index`, `chapter_url`, `name`, `content`, `update_time`)' \
-                   ' VALUES ("{nid}", "{index}", "{chapter_url}", "{name}", "{content}", "{update_time}");'\
-                .format(novel_id=self._connect.escape_string(str(novel_id)),
-                        index=self._connect.escape_string(str(index)),
-                        chapter_url=self._connect.escape_string(chapter_url), name = self._connect.escape_string(name),
-                        content=self._connect.escape_string(str(content)),
-                        update_time=self._connect.escape_string(str(time.time())))
-            try:
-                curosr.execute(msql)
-            except Exception as e:
-                log.error('插入章节错误：' + str(e))
-                return False
+        return True
+
+    def update_novel_chapter_by_url(self, novel_id: int, index: int, chapter_url: str, name: str,
+                                    content: str, update_time: int) -> bool:
+        msql = 'UPDATE `novel_chapter` SET `nid` = "{nid}", `index`="{index}", `name`="{name}",\
+            `content`="{content}", `update_time`="{update_time}" WHERE `chapter_url`="{chapter_url}";'\
+            .format(nid=novel_id, index=index, name=self._connect.escape_string(name),
+                    content=self._connect.escape_string(content), update_time=update_time,
+                    chapter_url=self._connect.escape_string(chapter_url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            self._connect.commit()
+            self._mutex.release()
+            log.info(str(index) + '|' + name + '|' + chapter_url + ' 章节信息更新成功！')
+        except Exception as e:
+            log.error('章节信息更新失败: ' + str(e))
+            return False
         return True
 
     def update_novel_info_update_by_url(self, url: str, update: int):

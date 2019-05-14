@@ -123,7 +123,10 @@ class Novel:
                 ele.set_chapter_content(content)
                 self._chapter.append(ele)
 
-    """ ok """
+    def has_chapter(self, url: str):
+        return self._mysql.novel_chapter_exist(url)
+
+    """ main ok """
     def save_novel_info(self) -> bool:
         # 检测信息是否上锁
         if self._mysql.novel_info_is_locked_by_url(self.get_book_url()):
@@ -151,9 +154,33 @@ class Novel:
             log.info(str(novel_id) + '|' + self.get_name() + '|' + self.get_author() + ' 书籍信息插入成功！')
         return True
 
+    """ main ok """
+    def save_novel_chapter(self) -> bool:
+        novel_id = self.get_nid()
+        parser = self._parser_name
+        if novel_id < 0:
+            log.error(self.get_name() + '|' + self.get_author() + '|' + 'nid 获取失败!')
+            return False
+        for chapter in self._chapter:
+            index = chapter.get_index()
+            name = chapter.get_name()
+            content = chapter.get_content()
+            chapter_url = chapter.get_chapter_url()
+            update_time = chapter.get_chapter_update()
+            # 检查是否上锁
+            if self._mysql.novel_chapter_is_locked_by_url(chapter_url):
+                log.info(self.get_name() + '|' + self.get_author() + '| ' + name + ' 章节信息上锁!')
+                continue
+            # 检查章节信息是否存在
+            if self._mysql.novel_chapter_exist(chapter_url):    # 小说章节存在，更新
+                self._mysql.update_novel_chapter_by_url(novel_id, index, chapter_url, name, content, update_time)
+            else:
+                self._mysql.insert_novel_chapter(novel_id, index, chapter_url, parser, name, content, update_time)
+        return True
+
     class NovelInfo:
         def __init__(self):
-            self._nid = 0
+            self._nid = -1
             self._name = ''
             self._author = ''
             self._category = ''
@@ -336,6 +363,9 @@ class Novel:
 
         def get_chapter_lock(self):
             return self._lock
+
+        def get_chapter_update(self):
+            return self._update_time
 
     class NovelMysql(Mysql):
         def __init__(self):

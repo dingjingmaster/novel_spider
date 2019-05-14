@@ -48,7 +48,7 @@ class CCuu234Spider(Spider):
                 if '' == text:
                     continue
                 if not novel.save_novel_info():
-                    continue                                            # 保存小说信息，上锁则跳过
+                    continue                                                    # 保存小说信息，上锁或出错则跳过
                 for index, name, chapter_url in parser.parse(text, parse_type=parser.PARSER_BOOK_CHAPTER_URL):
                     novel.add_chapter(index, name, chapter_url, '')
                     log.info('正在获取 ' + novel.get_name() + '|' + novel.get_author() + '|' + name + '|' + chapter_url)
@@ -56,10 +56,13 @@ class CCuu234Spider(Spider):
                     if '' == text:
                         log.error(novel.get_name() + '|' + novel.get_author() + '|' + name + '下载失败!')
                         continue
+                    # 测试是否已经包含章节信息
+                    if novel.has_chapter(chapter_url):
+                        log.info(novel.get_name() + '|' + novel.get_author() + '|' + name + '已经存在!')
+                        continue
                     flag, content = parser.parse(c, parse_type=parser.PARSER_BOOK_CHAPTER_CONTENT)
                     if flag:
                         novel.set_chapter_content_by_index(index, content)
-                    break
-            exit(1)
-            print(url)
+                novel.save_novel_chapter()
+        log.info(self._name + '执行完成!')
 
