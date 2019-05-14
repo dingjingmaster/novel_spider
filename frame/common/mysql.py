@@ -212,7 +212,6 @@ class Mysql(object):
                         img_content=self._connect.escape_string(str(img_content)),
                         chapter_base_url=self._connect.escape_string(chapter_base_url),
                         update_time=update_time, book_url=self._connect.escape_string(book_url))
-        print(msql)
         try:
             self._mutex.acquire()
             curosr = self._connect.cursor()
