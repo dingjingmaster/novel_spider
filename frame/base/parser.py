@@ -37,6 +37,9 @@ class Parser(object):
     def _parser_book_chapter_url(self, doc: str) -> (bool, dict, dict, dict):
         return
 
+    def _parser_book_chapter_content(self, doc: str) -> (bool, str):
+        return
+
     def _parser_book_name(self, doc: str) -> (bool, str):
         return
 
@@ -75,6 +78,8 @@ class Parser(object):
             return self._parser_book_desc(doc)
         elif self.PARSER_BOOK_STATUS == parse_type:
             return self._parser_book_status(doc)
+        elif self.PARSER_BOOK_CHAPTER_CONTENT == parse_type:
+            return self._parser_book_chapter_content(doc)
         else:
             return Parser._parser(doc, rule)
 
@@ -87,6 +92,4 @@ class Parser(object):
     PARSER_BOOK_CATEGORY = 7
     PARSER_BOOK_DESC = 8
     PARSER_BOOK_STATUS = 9
-
-
-
+    PARSER_BOOK_CHAPTER_CONTENT = 10

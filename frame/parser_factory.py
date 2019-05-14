@@ -11,3 +11,10 @@ class ParserFactory:
     _parserDict = {
         CC_UU234_NAME: CCuu234Parser(),
     }
+
+
+_parser = ParserFactory()
+
+
+def get_parser():
+    return _parser

@@ -43,8 +43,8 @@ class Spider(object):
                     self._bookList.append(arr1[0] + str(x) + arr1[1])
             for i in self._bookList:
                 yield i
-        except:
-            log.error(self._name + '不符合的seed url 设置!')
+        except Exception as e:
+            log.error(self._name + '不符合的seed url 设置: ' + str(e))
             return None
 
     @staticmethod
@@ -56,7 +56,6 @@ class Spider(object):
 
     def run(self):
         pass
-
     _name = ''
     _webURL = ''
     _bookList = []
