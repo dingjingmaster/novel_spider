@@ -20,7 +20,7 @@ class Get:
 			'Connection': 'keep-alive',
 		}
 
-	def html(self)-> str:
+	def html(self) -> str:
 		tm = 0
 		text = ''
 		retry = 1

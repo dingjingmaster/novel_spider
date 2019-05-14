@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 # -*- encoding=utf8 -*-
-
+from frame.log.log import log
+from frame.common.get import Get
 """
     抓取基类
         参数：
@@ -12,25 +13,51 @@
 
 class Spider(object):
     def __init__(self):
-        self.name = 'base_spider'
-        self.webURL = ''
+        self._name = 'base_spider'
+        self._webURL = ''
 
-    def set_book_url(self, book_url: dict):
-        if len(book_url) > 0:
-            self.bookList = book_url
+    def get_name(self):
+        return self._name
 
-    def set_seed_url(self, url: str):
-        if '' != url and url is not None:
-            self.startURL = url
+    def get_web_url(self):
+        return self._webURL
+
+    def set_book_url(self, book_url: str):
+        if None is not book_url and '' != book_url:
+            self._bookList.append(book_url)
+
+    def set_seed_url(self, for_url: str, mid_start: int, mid_end: int, back_url: str):
+        key = for_url + '|' + back_url
+        val = str(mid_start) + '|' + str(mid_end)
+        self._seedURL[key] = val
+
+    def get_book_list(self):
+        if len(self._seedURL) <= 0:
+            log.error(self._name + '由于未定义seed url 导致获取book list 失败！')
+            return None
+        try:
+            for ik, iv in self._seedURL.items():
+                arr1 = ik.split('|')
+                arr2 = iv.split('|')
+                for x in range(int(arr2[0]), int(arr2[1])):
+                    self._bookList.append(arr1[0] + str(x) + arr1[1])
+            for i in self._bookList:
+                yield i
+        except:
+            log.error(self._name + '不符合的seed url 设置!')
+            return None
+
+    @staticmethod
+    def http_get(url: str, resource_method=1):
+        if resource_method == 1:
+            return Get(url, try_time=100, try_sec=2).html()
+        else:
+            return Get(url, try_time=100, try_sec=2).binary()
 
     def run(self):
         pass
 
-    name = ''
-    webURL = ''
-    bookList = {}
-    startURL = ''
-
-
-
-
+    _name = ''
+    _webURL = ''
+    _bookList = []
+    _seedURL = {}

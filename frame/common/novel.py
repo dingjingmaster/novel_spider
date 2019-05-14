@@ -10,11 +10,10 @@ from frame.common.mysql import Mysql
 
 
 class Novel:
-    def __init__(self, url: str):
+    def __init__(self):
         self._info = Novel.NovelInfo()
         self._mysql = Novel.NovelMysql()
         self._chapter = []
-        self._url = url
 
     class NovelInfo:
         def __init__(self):

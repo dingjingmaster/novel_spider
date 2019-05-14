@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
     """ www.uu234.cc """
     ccuu234 = spiderFactory.get_spider('cc_uu234')
-    ccuu234.set_book_url(cc_uu234)
+    ccuu234.set_seed_url('http://www.uu234.cc/quanben/list_', 1, 390, '.html')         # 全本书籍
     tpool.set_spider(ccuu234)
 
     """ 开始运行 """

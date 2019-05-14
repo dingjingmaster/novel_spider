@@ -31,15 +31,15 @@ class ThreadPool:
                 spider: Spider = None
                 if len(self._spider) > 0:
                     spider = self._spider.pop()
-                    log.info('成功获取spider: ' + spider.name)
+                    log.info('成功获取spider: ' + spider.get_name())
                 self._mutex.release()
                 if spider is None:
                     log.info('任务执行完毕! spider id: ' + str(thread_id) + ' 开始退出...')
                     break
                 else:
-                    log.info('spider: ' + spider.name + '开始执行!')
+                    log.info('spider: ' + spider.get_name() + '开始执行!')
                     spider.run()
-                    log.info('spider: ' + spider.name + '执行完成!')
+                    log.info('spider: ' + spider.get_name() + '执行完成!')
 
     def run(self):
         """ 先添加，也可不添加 """

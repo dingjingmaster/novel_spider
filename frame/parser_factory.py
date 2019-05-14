@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 # -*- encoding=utf8 -*-
-from frame.novel_parser.feidu_parser import FeiduParser
+from frame.web.ccuu234 import *
+from frame.novel_parser.ccuu234 import CCuu234Parser
 
 
 class ParserFactory:
@@ -8,11 +9,5 @@ class ParserFactory:
         if parser_name in self._parserDict:
             return self._parserDict[parser_name]
     _parserDict = {
-        '34fd_com': FeiduParser(),
+        CC_UU234_NAME: CCuu234Parser(),
     }
-
-
-if __name__ == '__main__':
-    parser = ParserFactory()
-    feidu = parser.get_parser('34fd_com')
-    exit(0)
