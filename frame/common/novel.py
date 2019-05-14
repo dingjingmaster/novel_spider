@@ -124,22 +124,32 @@ class Novel:
                 self._chapter.append(ele)
 
     """ ok """
-    def save_novel_info(self):
+    def save_novel_info(self) -> bool:
         # 检测信息是否上锁
         if self._mysql.novel_info_is_locked_by_url(self.get_book_url()):
             log.info(self.get_name() + '|' + self.get_author() + '信息上锁!')
-            return
+            return False
         # 检测信息是否存在
         if self._mysql.novel_info_exist(self.get_book_url()):                       # 小说信息存在，更新
-            log.info(self.get_name() + '|' + self.get_author() + '信息存在！开始更新...')
+            # 获取小说 id 给 novel_info
+            flag, novel_id = self._mysql.get_novel_id_by_url(self.get_book_url())
+            if not flag:
+                return False
+            self._info.set_nid(novel_id)
             self._mysql.update_novel_info_by_url(self.get_book_url(), self.get_name(), self.get_author(),
                         self.get_category(), self.get_describe(), self.get_complete(), self.get_img_url(),
                         self.get_img_content(), self.get_chapter_base_url(), self.get_update_time())
+            log.info(str(novel_id) + '|' + self.get_name() + '|' + self.get_author() + ' 书籍信息更新成功！')
         else:                                                                       # 小说信息不存在，插入小说信息
-            self._mysql.insert_novel_info(self.get_name(), self.get_author(), self.get_category(),
+            flag, novel_id = self._mysql.insert_novel_info(self.get_name(), self.get_author(), self.get_category(),
                         self.get_describe(), self.get_complete(), self._parser_name, self.get_book_url(),
                         self.get_img_url(), self.get_img_content(), self.get_chapter_base_url(),
                         self.get_create_time(), self.get_update_time())
+            if not flag:
+                return False
+            self._info.set_nid(novel_id)
+            log.info(str(novel_id) + '|' + self.get_name() + '|' + self.get_author() + ' 书籍信息插入成功！')
+        return True
 
     class NovelInfo:
         def __init__(self):

@@ -47,7 +47,8 @@ class CCuu234Spider(Spider):
                 text = Spider.http_get(novel.get_chapter_base_url())
                 if '' == text:
                     continue
-                novel.save_novel_info()                                     # 保存小说信息
+                if not novel.save_novel_info():
+                    continue                                            # 保存小说信息，上锁则跳过
                 for index, name, chapter_url in parser.parse(text, parse_type=parser.PARSER_BOOK_CHAPTER_URL):
                     novel.add_chapter(index, name, chapter_url, '')
                     log.info('正在获取 ' + novel.get_name() + '|' + novel.get_author() + '|' + name + '|' + chapter_url)

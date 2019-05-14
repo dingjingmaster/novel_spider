@@ -91,6 +91,24 @@ class Mysql(object):
             log.error('SQL 执行错误: ' + str(e))
         return flag
 
+    def get_novel_id_by_url(self, url):
+        flag = False
+        nid = 0
+        msql = 'SELECT `nid` FROM `novel_info` WHERE book_url="{book_url}";'\
+                .format(book_url=self._connect.escape_string(url))
+        try:
+            self._mutex.acquire()
+            curosr = self._connect.cursor()
+            curosr.execute(msql)
+            result = curosr.fetchone()
+            self._mutex.release()
+            if None is not result:
+                flag = True
+                nid = int(result[0])
+        except Exception as e:
+            log.error('MySQL 执行错误: ' + str(e))
+        return flag, nid
+
     def get_novel_info_by_url(self, url):
         flag = False
         nid, name, author, category, describe, complete, parser, book_url, img_url, img_content,\
@@ -170,7 +188,7 @@ class Mysql(object):
     """ ok """
     def insert_novel_info(self, name: str, author: str, category: str, describe: str, complete: int, parser: str,
                           book_url: str, img_url: str, img_content: str, chapter_base_url: str,
-                          create_time: int, update_time: int):
+                          create_time: int, update_time: int) -> (bool, int):
         flag = False
         novel_id = -1
         msql = 'INSERT INTO `novel_info` (`name`, `author`, `category`, `describe`, `complete`, `parser`, `book_url`,'\
