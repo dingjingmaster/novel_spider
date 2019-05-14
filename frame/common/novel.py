@@ -178,6 +178,26 @@ class Novel:
                 self._mysql.insert_novel_chapter(novel_id, index, chapter_url, parser, name, content, update_time)
         return True
 
+    """ main  """
+    def save_novel_one_chapter(self, index, name, content, chapter_url) -> bool:
+        novel_id = self.get_nid()
+        parser = self._parser_name
+        update_time = int(time.time())
+        if novel_id < 0:
+            log.error(self.get_name() + '|' + self.get_author() + '|' + 'nid 获取失败!')
+            return False
+        # 检查是否上锁
+        if self._mysql.novel_chapter_is_locked_by_url(chapter_url):
+            log.info(self.get_name() + '|' + self.get_author() + '| ' + name + ' 章节信息上锁!')
+            return False
+        # 检查章节信息是否存在
+        if self._mysql.novel_chapter_exist(chapter_url):  # 小说章节存在，更新
+            self._mysql.update_novel_chapter_by_url(novel_id, index, chapter_url, name, content, update_time)
+        else:
+            self._mysql.insert_novel_chapter(novel_id, index, chapter_url, parser, name, content, update_time)
+        return True
+
+
     class NovelInfo:
         def __init__(self):
             self._nid = -1
