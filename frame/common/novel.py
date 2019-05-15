@@ -126,7 +126,7 @@ class Novel:
     def has_chapter(self, url: str):
         return self._mysql.novel_chapter_exist(url)
 
-    """ main ok """
+    """ 保存书籍信息 """
     def save_novel_info(self) -> bool:
         # 检测信息是否上锁
         if self._mysql.novel_info_is_locked_by_url(self.get_book_url()):
@@ -154,9 +154,17 @@ class Novel:
             log.info(str(novel_id) + '|' + self.get_name() + '|' + self.get_author() + ' 书籍信息插入成功！')
         return True
 
-    """ main ok """
+    """ 保存所有章节 """
     def save_novel_chapter(self) -> bool:
-        novel_id = self.get_nid()
+        novel_id = -1
+        if novel_id <= 0:
+            if self._mysql.novel_info_exist(self.get_book_url()):  # 小说信息存在，更新
+                # 获取小说 id 给 novel_info
+                flag, novel_id = self._mysql.get_novel_id_by_url(self.get_book_url())
+                if not flag:
+                    return False
+                self._info.set_nid(novel_id)
+            novel_id = self.get_nid()
         parser = self._parser_name
         if novel_id < 0:
             log.error(self.get_name() + '|' + self.get_author() + '|' + 'nid 获取失败!')
@@ -178,8 +186,54 @@ class Novel:
                 self._mysql.insert_novel_chapter(novel_id, index, chapter_url, parser, name, content, update_time)
         return True
 
-    """ main  """
+    """ 保存章节一章 """
     def save_novel_one_chapter(self, index, name, content, chapter_url) -> bool:
+        novel_id = self.get_nid()
+        if novel_id <= 0:
+            if self._mysql.novel_info_exist(self.get_book_url()):  # 小说信息存在，更新
+                # 获取小说 id 给 novel_info
+                flag, novel_id = self._mysql.get_novel_id_by_url(self.get_book_url())
+                if not flag:
+                    return False
+                self._info.set_nid(novel_id)
+            novel_id = self.get_nid()
+        parser = self._parser_name
+        update_time = int(time.time())
+        if novel_id < 0:
+            log.error(self.get_name() + '|' + self.get_author() + '|' + 'nid 获取失败!')
+            return False
+        # 检查是否上锁
+        if self._mysql.novel_chapter_is_locked_by_url(chapter_url):
+            log.info(self.get_name() + '|' + self.get_author() + '| ' + name + ' 章节信息上锁!')
+            return False
+        # 检查章节信息是否存在
+        if self._mysql.novel_chapter_exist(chapter_url):  # 小说章节存在，更新
+            self._mysql.update_novel_chapter_by_url(novel_id, index, chapter_url, name, content, update_time)
+        else:
+            self._mysql.insert_novel_chapter(novel_id, index, chapter_url, parser, name, content, update_time)
+        return True
+
+    """ 书籍封面页URL更新 """
+    def update_novel_info_img_url(self, book_url: str, img_url: str):
+        return self._mysql.update_novel_info_img_url_by_url(book_url, img_url)
+
+    """ 书籍封面页图片内容更新 """
+    def update_novel_info_img_content(self, book_url: str, img_content: str):
+        return self.update_novel_info_img_content(book_url, img_content)
+
+    """ 书籍章节页更新 """
+    def update_novel_info_chapter_base(self, book_url: str, chapter_base: str):
+        return self.update_novel_info_chapter_base(book_url, chapter_base)
+
+    """ 保存书籍章节信息 """
+    def save_check_novel_one_chapter(self, index, name, content, chapter_url, novel_url) -> bool:
+        novel_id = -1
+        if novel_id <= 0:
+            if self._mysql.novel_info_exist(novel_url):
+                flag, novel_id = self._mysql.get_novel_id_by_url(novel_url)
+                if not flag:
+                    return False
+                self._info.set_nid(novel_id)
         novel_id = self.get_nid()
         parser = self._parser_name
         update_time = int(time.time())
@@ -196,6 +250,10 @@ class Novel:
         else:
             self._mysql.insert_novel_chapter(novel_id, index, chapter_url, parser, name, content, update_time)
         return True
+
+    """ 获取未锁定的书籍列表 """
+    def get_unlock_book_by_parser(self, parser: str) -> (str, str, str):
+        return self._mysql.novel_info_unlock_book_url_by_parser(parser)
 
     class NovelInfo:
         def __init__(self):
