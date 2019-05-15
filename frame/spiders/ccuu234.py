@@ -19,6 +19,7 @@ class CCuu234Spider(Spider):
         check_error = 0
         check_update_img = 0
         check_update_chapter = 0
+        check_update_exit_chapter = 0
         parser = get_parser().get_parser(CC_UU234_NAME)
         novel = Novel(CC_UU234_NAME)
         for book_url, img_url, chapter_base_url in novel.get_unlock_book_by_parser(CC_UU234_NAME):
@@ -42,6 +43,7 @@ class CCuu234Spider(Spider):
             for index, name, chapter_url in parser.parse(text, parse_type=parser.PARSER_BOOK_CHAPTER_URL):
                 if novel.has_chapter(chapter_url):
                     log.info(novel.get_name() + '|' + novel.get_author() + '|' + name + '已经存在!')
+                    check_update_exit_chapter += 1
                     continue
                 check_update_chapter += 1
                 c = Spider.http_get(chapter_url)
@@ -56,6 +58,7 @@ class CCuu234Spider(Spider):
                 \n\t\t总共：' + str(check_all) +\
                  '\n\t\t失败：' + str(check_error) +\
                  '\n\t\t成功更新图片：' + str(check_update_img) +\
+                 '\n\t\t已有章节：' + str(check_update_exit_chapter) +\
                  '\n\t\t成功更新章节：' + str(check_update_chapter))
         time.sleep(3)
         return True
