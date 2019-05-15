@@ -55,6 +55,9 @@ class Parser(object):
     def _parser_book_status(self, doc: str) -> (bool, str):
         return
 
+    def get_parser_name(self):
+        return self._parserName
+
     @staticmethod
     def _parser(doc: str, rule: str):
         return pyquery.PyQuery(doc).find(rule)

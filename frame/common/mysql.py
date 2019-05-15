@@ -61,6 +61,25 @@ class Mysql(object):
             log.error('SQL 执行错误: ' + str(e))
         return flag
 
+    def novel_info_unlock_book_url_by_parser_name(self, parser_name: str) -> (str, str, str):
+        mlist = []
+        msql = 'SELECT `book_url`, img_url, chapter_base_url FROM `novel_info` WHERE `parser`="{parser_name}" \
+               AND `lock`=0'.format(parser_name=self._connect.escape_string(parser_name))
+        cursor = self._connect.cursor()
+        try:
+            cursor.execute(msql)
+            result = cursor.fetchall()
+            if None is not result:
+                for res in result:
+                    book_url = res[0]
+                    img_url = res[1]
+                    chapter_base_url = res[2]
+                    mlist.append((book_url, img_url, chapter_base_url))
+        except Exception as e:
+            log.error('获取所有书籍信息失败：' + str(e))
+        for infos in mlist:
+            yield infos
+
     def novel_chapter_is_locked_by_url(self, url: str) -> bool:
         flag = False
         msql = 'SELECT `cid`, `lock` FROM `novel_chapter` WHERE chapter_url = "{chapter_url}";'\
@@ -151,55 +170,6 @@ class Mysql(object):
         return (flag, nid, name, author, category, describe, complete, parser, book_url, img_url, img_content,
                 chapter_base_url, create_time, update_time, hot, cp, lock)
 
-    def get_novel_info_by_nid(self, novel_id):
-        flag = False
-        nid, name, author, category, describe, complete, parser, book_url, img_url, img_content, chapter_base_url, \
-        create_time, update_time, hot, cp, lock = \
-            0, '', '', '', '', 0, '', '', '', '', '', 0, 0, 0, 0, 0
-        msql = 'SELECT `nid`, `name`, `author`, `category`, `describe`, `complete`, `parser`, `book_url`,' \
-               '`img_url`, `img_content`, `chapter_base_url`, `create_time`, `update_time`,' \
-               '`hot`, `cp`, `lock` FROM `novel_info` WHERE nid="{nid}";'\
-               .format(nid=self._connect.escape_string(str(novel_id)))
-        try:
-            self._mutex.acquire()
-            curosr = self._connect.cursor()
-            curosr.execute(msql)
-            result = curosr.fetchone()
-            self._mutex.release()
-            if None is not result:
-                flag = True
-                nid, name, author, category, describe, complete, parser, book_url, img_url, img_content,\
-                chapter_base_url, create_time, update_time, hot, cp, lock = \
-                    int(result[0]), str(result[1]), str(result[2]), str(result[3]), str(result[4]), \
-                    int(result[5]), str(result[6]), str(result[7]), str(result[8]), bytes(result[9]),\
-                    str(result[10]), int(result[11]), int(result[12]), int(result[13]), int(result[14]), int(result[15])
-        except Exception as e:
-            log.error('MySQL 执行错误: ' + str(e))
-        return (flag, nid, name, author, category, describe, complete, parser, book_url, img_url, img_content,
-                chapter_base_url, create_time, update_time, hot, cp, lock)
-
-    def get_novel_chapters_by_nid(self, novel_id):
-        result_list = []
-        msql = 'SELECT `cid`, `nid`, `index`, `chapter_url`, `name`, `content`, `update_time`,' \
-               '`lock` FROM `novel_chapter` WHERE nid="{nid}"'\
-               .format(nid=self._connect.escape_string(str(novel_id)))
-        try:
-            self._mutex.acquire()
-            curosr = self._connect.cursor()
-            curosr.execute(msql)
-            results = curosr.fetchall()
-            self._mutex.release()
-            if None is not results:
-                for result in results:
-                    cid, nid, index, chapter_url, name, content, update_time, lock = \
-                        int(result[0]), int(result[1]), int(result[2]), str(result[3]), str(result[4]), \
-                        str(result[5]), int(result[6]), int(result[7])
-                    result_list.append((cid, nid, index, chapter_url, name, content, update_time, lock))
-        except Exception as e:
-            log.error('MySQL 执行错误: ' + str(e))
-        for i in result_list:
-            yield i
-
     """ ok """
     def insert_novel_info(self, name: str, author: str, category: str, describe: str, complete: int, parser: str,
                           book_url: str, img_url: str, img_content: str, chapter_base_url: str,
@@ -256,7 +226,7 @@ class Mysql(object):
             log.error('MySQL 执行错误: ' + str(e))
         return None
 
-    """  """
+    """ ok """
     def insert_novel_chapter(self, novel_id: int, index: int, chapter_url: str, parser: str,
                              name: str, content: str, update_time: int):
         msql = 'INSERT INTO `novel_chapter` (`nid`, `index`, `chapter_url`,`parser`,\

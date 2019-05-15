@@ -54,7 +54,12 @@ class Spider(object):
         else:
             return Get(url, try_time=100, try_sec=2).binary()
 
+    """ 抓取新的书籍信息并保存MySQL """
     def run(self):
+        pass
+
+    """ 针对已抓取书籍检查是否有更新并保存MySQL """
+    def check(self):
         pass
     _name = ''
     _webURL = ''

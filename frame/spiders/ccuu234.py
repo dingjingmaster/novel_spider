@@ -2,6 +2,7 @@
 # -*- encoding=utf8 -*-
 from frame.log.log import log
 from frame.common.param import *
+from frame.common.mysql import Mysql
 from frame.common.novel import Novel
 from frame.base.spider import Spider
 from frame.parser_factory import get_parser
@@ -12,6 +13,37 @@ class CCuu234Spider(Spider):
         self._name = CC_UU234_NAME
         self._webURL = CC_UU234_WEB_URL
         log.info('name:' + self._name + ' url:' + self._webURL + ' spider安装成功!')
+
+    def check(self):
+        check_all = 0
+        check_update = 0
+        check_not_update = 0
+        parser = get_parser().get_parser(CC_UU234_NAME)
+        mysql = Mysql()
+        mysql.set_ip(MYSQL_HOST).set_port(MYSQL_PORT)\
+            .set_usr(MYSQL_USER).set_password(MYSQL_PASSWORD)\
+            .set_database(MYSQL_NOVEL_DB).connect()
+        for book_url, img_url, chapter_base_url in mysql.novel_info_unlock_book_url_by_parser_name(CC_UU234_NAME):
+            print(book_url + '|' + img_url + '|' + chapter_base_url)
+            check_all += 1
+            text = Spider.http_get(book_url)
+            if '' == text:
+                check_not_update += 1
+                continue
+            doc = parser.parse(text, rule='body>div>.listconl>.clearfix')
+            for ct in doc.children().items():
+                flag, img_url = parser.parse(text, parse_type=parser.PARSER_BOOK_IMG_URL)
+                flag, chapter_url = parser.parse(text, parse_type=parser.PARSER_BOOK_CHAPTER_BASE_URL)
+
+
+
+        # 获取书籍信息
+        # 检查书籍是否上锁
+        # 没有上锁，检查书籍状态是否更新
+        # 没有上锁，检查类别是否更新
+        # 没有上锁，检查封面页图片url是否更新
+        # 没有上锁，检查章节信息是否有更新
+        pass
 
     def run(self):
         parser = get_parser().get_parser(CC_UU234_NAME)
@@ -65,3 +97,8 @@ class CCuu234Spider(Spider):
                         novel.save_novel_one_chapter(index, name, content, chapter_url)
         log.info(self._name + '执行完成!')
 
+
+if __name__ == '__main__':
+    cc = CCuu234Spider()
+    cc.check()
+    pass

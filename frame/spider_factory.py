@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.6
 # -*- encoding=utf8 -*-
-from frame.web.ccuu234 import *
+from frame.common.param import *
 from frame.spiders.ccuu234 import CCuu234Spider
 
 
