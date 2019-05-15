@@ -1,6 +1,5 @@
 #!/usr/bin/env python3.6
 # -*- encoding=utf8 -*-
-import pyquery
 from frame.log.log import log
 from frame.common.param import *
 from frame.common.novel import Novel

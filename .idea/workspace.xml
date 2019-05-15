@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bba8c85-4912-46d7-aadb-ae5c539d773d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/frame/common/param.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/common/param.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frame/novel_parser/ccuu234.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/novel_parser/ccuu234.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frame/spiders/ccuu234.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/spiders/ccuu234.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,8 +55,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frame/spiders/ccuu234.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+            <state relative-caret-position="19">
+              <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+              <folding>
+                <element signature="e#50#79#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,15 +87,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
               <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frame/web/ccuu234.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -244,12 +236,6 @@
               <item name="frame" type="462c0819:PsiDirectoryNode" />
               <item name="spiders" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
-              <item name="frame" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -357,12 +343,12 @@
       <workItem from="1557492711851" duration="533000" />
       <workItem from="1557539392764" duration="7226000" />
       <workItem from="1557546704784" duration="13076000" />
-      <workItem from="1557802599775" duration="33004000" />
+      <workItem from="1557802599775" duration="33057000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77120000" />
+    <option name="totallyTimeSpent" value="77173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="414" y="11" width="1638" height="1007" extended-state="0" />
@@ -711,8 +697,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frame/spiders/ccuu234.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        <state relative-caret-position="19">
+          <caret line="1" column="23" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+          <folding>
+            <element signature="e#50#79#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
