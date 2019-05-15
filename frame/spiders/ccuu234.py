@@ -18,7 +18,7 @@ class CCuu234Spider(Spider):
         index = 0
         check_all = 0
         check_error = 0
-        check_update_img = 0
+        check_update = 0
         check_update_chapter = 0
         check_update_exit_chapter = 0
         parser = get_parser().get_parser(CC_UU234_NAME)
@@ -27,7 +27,6 @@ class CCuu234Spider(Spider):
             index += 1
             log.info('开始检查' + str(index) + '：' + book_url)
             check_all += 1
-            novel = Novel(CC_UU234_NAME)
             text = Spider.http_get(book_url)
             if '' == text:
                 check_error += 1
@@ -35,21 +34,24 @@ class CCuu234Spider(Spider):
             flag, img_url_new = parser.parse(text, parse_type=parser.PARSER_BOOK_IMG_URL)
             flag, chapter_url_new = parser.parse(text, parse_type=parser.PARSER_BOOK_CHAPTER_BASE_URL)
             if img_url != img_url_new:
-                check_update_img += 1
+                check_update += 1
                 novel.update_novel_info_img_url(book_url, img_url)
                 img_content = Spider.http_get(img_url_new)
                 if '' != img_content and None is not img_content:
+                    check_update += 1
                     novel.update_novel_info_img_content(book_url, img_content)
             if chapter_base_url != chapter_url_new:
+                check_update += 1
                 novel.update_novel_info_chapter_base(book_url, chapter_url_new)
             for index, name, chapter_url in parser.parse(text, parse_type=parser.PARSER_BOOK_CHAPTER_URL):
-                if novel.has_chapter(chapter_url):
-                    log.info(novel.get_name() + '|' + novel.get_author() + '|' + name + '已经存在!')
-                    check_update_exit_chapter += 1
-                    continue
                 check_update_chapter += 1
+                if novel.has_chapter(chapter_url):
+                    check_update_exit_chapter += 1
+                    log.info(novel.get_name() + '|' + novel.get_author() + '|' + name + '已经存在!')
+                    continue
                 c = Spider.http_get(chapter_url)
                 if '' == text:
+                    check_error += 1
                     log.error(novel.get_name() + '|' + novel.get_author() + '|' + name + '下载失败!')
                     continue
                 flag, content = parser.parse(c, parse_type=parser.PARSER_BOOK_CHAPTER_CONTENT)
@@ -59,7 +61,7 @@ class CCuu234Spider(Spider):
         log.info('检查结果：\
                 \n\t\t总共：' + str(check_all) +\
                  '\n\t\t失败：' + str(check_error) +\
-                 '\n\t\t成功更新图片：' + str(check_update_img) +\
+                 '\n\t\t成功更新：' + str(check_update) +\
                  '\n\t\t已有章节：' + str(check_update_exit_chapter) +\
                  '\n\t\t成功更新章节：' + str(check_update_chapter))
         time.sleep(3)
