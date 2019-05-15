@@ -37,10 +37,10 @@ class ThreadPool:
                     log.info('任务执行完毕! spider id: ' + str(thread_id) + ' 开始退出...')
                     break
                 else:
-                    log.info('spider: ' + spider.get_name() + '开始执行！')
-                    spider.run()
                     log.info('spider: ' + spider.get_name() + '开始检查！')
                     spider.check()
+                    log.info('spider: ' + spider.get_name() + '开始执行！')
+                    spider.run()
                     log.info('spider: ' + spider.get_name() + '执行完成!')
 
     def run(self):
