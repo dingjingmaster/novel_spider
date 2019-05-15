@@ -1,8 +1,8 @@
 #!/usr/bin/env python3.6
 # -*- encoding=utf8 -*-
+import time
 from frame.log.log import log
 from frame.common.param import *
-from frame.common.mysql import Mysql
 from frame.common.novel import Novel
 from frame.base.spider import Spider
 from frame.parser_factory import get_parser
@@ -21,7 +21,7 @@ class CCuu234Spider(Spider):
         parser = get_parser().get_parser(CC_UU234_NAME)
         novel = Novel(CC_UU234_NAME)
         for book_url, img_url, chapter_base_url in novel.get_unlock_book_by_parser(CC_UU234_NAME):
-            print('开始检查：' + book_url)
+            log.info('开始检查：' + book_url)
             check_all += 1
             novel = Novel(CC_UU234_NAME)
             text = Spider.http_get(book_url)
@@ -38,6 +38,7 @@ class CCuu234Spider(Spider):
             if chapter_base_url != chapter_url_new:
                 novel.update_novel_info_chapter_base(book_url, chapter_url_new)
             for index, name, chapter_url in parser.parse(text, parse_type=parser.PARSER_BOOK_CHAPTER_URL):
+                check_update += 1
                 if novel.has_chapter(chapter_url):
                     log.info(novel.get_name() + '|' + novel.get_author() + '|' + name + '已经存在!')
                     continue
@@ -48,6 +49,12 @@ class CCuu234Spider(Spider):
                 flag, content = parser.parse(c, parse_type=parser.PARSER_BOOK_CHAPTER_CONTENT)
                 if flag:
                     novel.save_check_novel_one_chapter(index, name, content, chapter_url, book_url)
+            log.info('检查结束：' + book_url)
+        log.info('检查结果：\
+                \n\t\t总共：' + str(check_all) +\
+                 '\n\t\t成功：' + str(check_update) +\
+                 '\n\t\t失败：' + str(check_not_update))
+        time.sleep(3)
         return True
 
     def run(self):
@@ -69,6 +76,8 @@ class CCuu234Spider(Spider):
                 novel.set_category(category)
                 flag, status = parser.parse(ct.html(), parse_type=parser.PARSER_BOOK_STATUS)
                 novel.set_complete(status)
+                if novel.has_book(url):
+                    continue
                 text = Spider.http_get(novel.get_book_url())
                 if '' == text:
                     continue

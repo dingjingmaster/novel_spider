@@ -126,6 +126,9 @@ class Novel:
     def has_chapter(self, url: str):
         return self._mysql.novel_chapter_exist(url)
 
+    def has_book(self, book_url: str):
+        return self._mysql.novel_info_exist(book_url)
+
     """ 保存书籍信息 """
     def save_novel_info(self) -> bool:
         # 检测信息是否上锁
