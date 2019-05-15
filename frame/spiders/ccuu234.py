@@ -15,6 +15,7 @@ class CCuu234Spider(Spider):
         log.info('name:' + self._name + ' url:' + self._webURL + ' spider安装成功!')
 
     def check(self):
+        index = 0
         check_all = 0
         check_error = 0
         check_update_img = 0
@@ -23,7 +24,8 @@ class CCuu234Spider(Spider):
         parser = get_parser().get_parser(CC_UU234_NAME)
         novel = Novel(CC_UU234_NAME)
         for book_url, img_url, chapter_base_url in novel.get_unlock_book_by_parser(CC_UU234_NAME):
-            log.info('开始检查：' + book_url)
+            index += 1
+            log.info('开始检查' + str(index) + '：' + book_url)
             check_all += 1
             novel = Novel(CC_UU234_NAME)
             text = Spider.http_get(book_url)
@@ -53,7 +55,7 @@ class CCuu234Spider(Spider):
                 flag, content = parser.parse(c, parse_type=parser.PARSER_BOOK_CHAPTER_CONTENT)
                 if flag:
                     novel.save_check_novel_one_chapter(index, name, content, chapter_url, book_url)
-            log.info('检查结束：' + book_url)
+            log.info('检查结束' + str(index) + '：' + book_url)
         log.info('检查结果：\
                 \n\t\t总共：' + str(check_all) +\
                  '\n\t\t失败：' + str(check_error) +\
