@@ -3,8 +3,8 @@
 import re
 import pyquery
 from frame.log.log import log
+from frame.common.param import *
 from frame.base.parser import Parser
-from frame.web.ccuu234 import *
 
 
 class CCuu234Parser(Parser):

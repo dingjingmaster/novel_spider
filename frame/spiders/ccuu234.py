@@ -2,10 +2,10 @@
 # -*- encoding=utf8 -*-
 import pyquery
 from frame.log.log import log
-from frame.base.spider import Spider
-from frame.web.ccuu234 import *
-from frame.parser_factory import get_parser
+from frame.common.param import *
 from frame.common.novel import Novel
+from frame.base.spider import Spider
+from frame.parser_factory import get_parser
 
 
 class CCuu234Spider(Spider):
