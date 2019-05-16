@@ -87,7 +87,11 @@ class CCuu234Parser(Parser):
 
     def _parser_book_chapter_content(self, doc: str) -> (bool, dict, dict, dict):
         flag = False
-        text = pyquery.PyQuery(doc).find('.readbg>.content').text()
-        if None is not text and '' != text:
-            flag = True
+        text = None
+        try:
+            text = pyquery.PyQuery(doc).find('.readbg>.content').text()
+            if None is not text and '' != text:
+                flag = True
+        except Exception as e:
+            log.error('章节内容解析错误：' + str(e))
         return flag, text
