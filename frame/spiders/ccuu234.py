@@ -52,12 +52,12 @@ class CCuu234Spider(Spider):
                 check_update_chapter += 1
                 if novel.has_chapter(chapter_url):
                     check_update_exit_chapter += 1
-                    log.info(name + '|' + chapter_url + '|' + name + '已经存在!')
+                    log.info(name + '|' + chapter_url + '|' + name + ' 已经存在!')
                     continue
                 c = Spider.http_get(chapter_url)
                 if '' == text:
                     check_error += 1
-                    log.error(name + '|' + chapter_url + '|' + name + '下载失败!')
+                    log.error(name + '|' + chapter_url + '|' + name + ' 下载失败!')
                     continue
                 flag, content = parser.parse(c, parse_type=parser.PARSER_BOOK_CHAPTER_CONTENT)
                 if flag:
