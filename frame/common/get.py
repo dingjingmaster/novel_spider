@@ -27,15 +27,14 @@ class Get:
 		while tm <= self._try_time:
 			try:
 				s = requests.Session()
-				
 				r = s.get(self._url, headers=self._header)
 				if r.status_code == requests.codes.ok:
 					doc = pyquery.PyQuery(r.text.encode(r.encoding))
 					text = doc.html()
 					break
 				s.close()
-			except Exception:
-				log.warning(self._url + '重试:' + str(retry))
+			except Exception as e:
+				log.warning(self._url + '重试:' + str(retry) + str(e))
 				retry += 1
 				time.sleep(self._try_sec)
 			tm += 1
@@ -55,8 +54,8 @@ class Get:
 						break
 					break
 				s.close()
-			except Exception:
-				log.warning(self._url + '重试:' + str(retry))
+			except Exception as e:
+				log.warning(self._url + '重试:' + str(retry) + str(e))
 				retry += 1
 				time.sleep(self._try_sec)
 			tm += 1
