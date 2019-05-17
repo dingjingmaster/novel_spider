@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7bba8c85-4912-46d7-aadb-ae5c539d773d" name="Default Changelist" comment="" />
+    <list default="true" id="7bba8c85-4912-46d7-aadb-ae5c539d773d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/frame/common/get.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/common/get.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,10 +102,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frame/base/spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
+            <state relative-caret-position="90">
               <caret line="56" column="19" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
               <folding>
                 <element signature="e#49#78#0" expanded="true" />
@@ -130,11 +132,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frame/common/get.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="10" column="41" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="41" />
+            <state relative-caret-position="358">
+              <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
               <folding>
                 <element signature="e#47#58#0" expanded="true" />
               </folding>
@@ -155,7 +157,11 @@
     <findStrings>
       <find>log</find>
       <find>_stop</find>
+      <find>&quot;</find>
     </findStrings>
+    <replaceStrings>
+      <replace>'</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -191,15 +197,15 @@
         <option value="$PROJECT_DIR$/frame/common/novel.py" />
         <option value="$PROJECT_DIR$/frame/spiders/ccuu234.py" />
         <option value="$PROJECT_DIR$/frame/novel_parser/ccuu234.py" />
-        <option value="$PROJECT_DIR$/frame/common/get.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/frame/base/spider.py" />
+        <option value="$PROJECT_DIR$/frame/common/get.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="148" />
-    <option name="y" value="56" />
+    <option name="x" value="358" />
+    <option name="y" value="46" />
     <option name="width" value="1638" />
     <option name="height" value="917" />
   </component>
@@ -257,7 +263,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="database.main" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -282,7 +288,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.get">
     <configuration name="ccuu234" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="novel_spider" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -297,6 +303,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frame/spiders/ccuu234.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="get" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="novel_spider" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/frame/common" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/frame/common/get.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -352,6 +380,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="Python.get" />
         <item itemvalue="Python.ccuu234" />
         <item itemvalue="Python.parser_factory" />
       </list>
@@ -376,15 +405,15 @@
       <workItem from="1557904460266" duration="814000" />
       <workItem from="1557920116362" duration="128000" />
       <workItem from="1557920717465" duration="13182000" />
-      <workItem from="1558057478939" duration="1071000" />
+      <workItem from="1558057478939" duration="4933000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100254000" />
+    <option name="totallyTimeSpent" value="104116000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="148" y="56" width="1638" height="917" extended-state="1" />
+    <frame x="358" y="46" width="1638" height="917" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17807351" />
@@ -415,7 +444,8 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/novel_spider$main.coverage" NAME="main Coverage Results" MODIFIED="1558070527496" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/novel_spider$get.coverage" NAME="get Coverage Results" MODIFIED="1558084968351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frame/common" />
+    <SUITE FILE_PATH="coverage/novel_spider$main.coverage" NAME="main Coverage Results" MODIFIED="1558085716780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/novel_spider$ccuu234.coverage" NAME="ccuu234 Coverage Results" MODIFIED="1557901805646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frame/spiders" />
     <SUITE FILE_PATH="coverage/novel_spider$parser_factory.coverage" NAME="parser_factory Coverage Results" MODIFIED="1557475964317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frame" />
   </component>
@@ -635,16 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frame/common/get.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="41" />
-          <folding>
-            <element signature="e#47#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -691,7 +711,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frame/base/spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
+        <state relative-caret-position="90">
           <caret line="56" column="19" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
           <folding>
             <element signature="e#49#78#0" expanded="true" />
@@ -699,5 +719,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frame/common/get.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+          <folding>
+            <element signature="e#47#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
