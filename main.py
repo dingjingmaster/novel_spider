@@ -1,6 +1,5 @@
 #!/usr/bin/env python3.6
 # -*- encoding=utf8 -*-
-from url.ccuu234 import cc_uu234
 from frame.log.log import log
 from frame.thread import ThreadPool
 from frame.spider_factory import SpiderFactory

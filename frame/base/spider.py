@@ -50,9 +50,9 @@ class Spider(object):
     @staticmethod
     def http_get(url: str, resource_method=1):
         if resource_method == 1:
-            return Get(url, try_time=100, try_sec=2).html()
+            return Get(url).html()
         else:
-            return Get(url, try_time=100, try_sec=2).binary()
+            return Get(url).binary()
 
     """ 抓取新的书籍信息并保存MySQL """
     def run(self):
