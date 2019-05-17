@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frame/common/get.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="78" column="94" selection-start-line="78" selection-start-column="94" selection-end-line="78" selection-end-column="94" />
+            <state relative-caret-position="285">
+              <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
               <folding>
                 <element signature="e#47#58#0" expanded="true" />
               </folding>
@@ -108,8 +108,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-126" />
-    <option name="y" value="178" />
+    <option name="x" value="209" />
+    <option name="y" value="146" />
     <option name="width" value="1638" />
     <option name="height" value="917" />
   </component>
@@ -132,18 +132,6 @@
               <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
               <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
               <item name="frame" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
-              <item name="frame" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
-              <item name="frame" type="462c0819:PsiDirectoryNode" />
-              <item name="spiders" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
@@ -192,7 +180,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.get">
+  <component name="RunManager" selected="Python.main">
     <configuration name="ccuu234" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="novel_spider" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -309,24 +297,24 @@
       <workItem from="1557904460266" duration="814000" />
       <workItem from="1557920116362" duration="128000" />
       <workItem from="1557920717465" duration="13182000" />
-      <workItem from="1558057478939" duration="7948000" />
+      <workItem from="1558057478939" duration="10298000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107131000" />
+    <option name="totallyTimeSpent" value="109481000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-126" y="178" width="1638" height="917" extended-state="0" />
+    <frame x="160" y="91" width="1638" height="917" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17807351" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17807351" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.3298969" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3298969" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.40868455" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.35376757" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -348,8 +336,8 @@
     <option name="version" value="1" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/novel_spider$get.coverage" NAME="get Coverage Results" MODIFIED="1558084968351" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frame/common" />
-    <SUITE FILE_PATH="coverage/novel_spider$main.coverage" NAME="main Coverage Results" MODIFIED="1558088523018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/novel_spider$get.coverage" NAME="get Coverage Results" MODIFIED="1558089402104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frame/common" />
+    <SUITE FILE_PATH="coverage/novel_spider$main.coverage" NAME="main Coverage Results" MODIFIED="1558095349653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/novel_spider$ccuu234.coverage" NAME="ccuu234 Coverage Results" MODIFIED="1557901805646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frame/spiders" />
     <SUITE FILE_PATH="coverage/novel_spider$parser_factory.coverage" NAME="parser_factory Coverage Results" MODIFIED="1557475964317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frame" />
   </component>
@@ -625,8 +613,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frame/common/get.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="78" column="94" selection-start-line="78" selection-start-column="94" selection-end-line="78" selection-end-column="94" />
+        <state relative-caret-position="285">
+          <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
           <folding>
             <element signature="e#47#58#0" expanded="true" />
           </folding>
