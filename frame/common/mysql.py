@@ -112,13 +112,13 @@ class Mysql(object):
 
     def novel_chapter_exist(self, url: str) -> bool:
         flag = False
-        msql = 'SELECT `cid` FROM `novel_chapter` WHERE chapter_url = "{chapter_url}";'\
+        msql = 'SELECT `cid`, `content`, `index` FROM `novel_chapter` WHERE chapter_url = "{chapter_url}";'\
             .format(chapter_url=self._connect.escape_string(url))
         cursor = self._connect.cursor()
         try:
             cursor.execute(msql)
             result = cursor.fetchone()
-            if None is not result:
+            if (None is not result) and (result[1] is not None) and (result[1] != '') and (int(result[2]) >=  0):
                 flag = True
         except Exception as e:
             flag = False
