@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7bba8c85-4912-46d7-aadb-ae5c539d773d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/frame/common/mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/common/mysql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frame/common/novel.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/common/novel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frame/spiders/ccuu234.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/spiders/ccuu234.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,38 +37,27 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="118" column="28" selection-start-line="118" selection-start-column="28" selection-end-line="118" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frame/common/novel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="197" column="21" lean-forward="true" selection-start-line="197" selection-start-column="21" selection-end-line="197" selection-end-column="21" />
+            <state relative-caret-position="159">
+              <caret line="253" column="31" lean-forward="true" selection-start-line="253" selection-start-column="31" selection-end-line="253" selection-end-column="31" />
               <folding>
                 <element signature="e#46#55#0" expanded="true" />
                 <element signature="e#1306#1474#0" />
                 <element signature="e#2634#2881#0" />
                 <element signature="e#2961#3198#0" />
-                <element signature="e#3450#5082#0" />
-                <element signature="e#5153#6559#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="142" column="27" lean-forward="true" selection-start-line="142" selection-start-column="27" selection-end-line="142" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frame/spiders/ccuu234.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="118" column="37" lean-forward="true" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="48" />
-              <folding>
-                <element signature="e#49#60#0" expanded="true" />
+                <element signature="e#3540#5172#0" />
+                <element signature="e#5243#6649#0" />
+                <element signature="e#6759#7914#0" />
               </folding>
             </state>
           </provider>
@@ -90,6 +77,7 @@
       <find>log</find>
       <find>_stop</find>
       <find>&quot;</find>
+      <find>insert_novel_chapter</find>
     </findStrings>
     <replaceStrings>
       <replace>'</replace>
@@ -129,9 +117,9 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/frame/base/spider.py" />
         <option value="$PROJECT_DIR$/frame/common/get.py" />
-        <option value="$PROJECT_DIR$/frame/common/mysql.py" />
         <option value="$PROJECT_DIR$/frame/spiders/ccuu234.py" />
         <option value="$PROJECT_DIR$/frame/common/novel.py" />
+        <option value="$PROJECT_DIR$/frame/common/mysql.py" />
       </list>
     </option>
   </component>
@@ -337,12 +325,12 @@
       <workItem from="1557904460266" duration="814000" />
       <workItem from="1557920116362" duration="128000" />
       <workItem from="1557920717465" duration="13182000" />
-      <workItem from="1558057478939" duration="16307000" />
+      <workItem from="1558057478939" duration="16935000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115490000" />
+    <option name="totallyTimeSpent" value="116118000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="91" y="183" width="1638" height="917" extended-state="0" />
@@ -354,7 +342,7 @@
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.3298969" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3298969" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.29885057" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.49425286" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -377,7 +365,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/novel_spider$get.coverage" NAME="get Coverage Results" MODIFIED="1558089402104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frame/common" />
-    <SUITE FILE_PATH="coverage/novel_spider$main.coverage" NAME="main Coverage Results" MODIFIED="1558148233587" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/novel_spider$main.coverage" NAME="main Coverage Results" MODIFIED="1558148832068" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/novel_spider$ccuu234.coverage" NAME="ccuu234 Coverage Results" MODIFIED="1557901805646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frame/spiders" />
     <SUITE FILE_PATH="coverage/novel_spider$parser_factory.coverage" NAME="parser_factory Coverage Results" MODIFIED="1557475964317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/frame" />
   </component>
@@ -638,17 +626,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="142" column="27" lean-forward="true" selection-start-line="142" selection-start-column="27" selection-end-line="142" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frame/spiders/ccuu234.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="118" column="37" lean-forward="true" selection-start-line="118" selection-start-column="26" selection-end-line="118" selection-end-column="48" />
+        <state relative-caret-position="275">
+          <caret line="116" column="32" lean-forward="true" selection-start-line="116" selection-start-column="32" selection-end-line="116" selection-end-column="32" />
           <folding>
             <element signature="e#49#60#0" expanded="true" />
           </folding>
@@ -657,16 +638,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frame/common/novel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="197" column="21" lean-forward="true" selection-start-line="197" selection-start-column="21" selection-end-line="197" selection-end-column="21" />
+        <state relative-caret-position="159">
+          <caret line="253" column="31" lean-forward="true" selection-start-line="253" selection-start-column="31" selection-end-line="253" selection-end-column="31" />
           <folding>
             <element signature="e#46#55#0" expanded="true" />
             <element signature="e#1306#1474#0" />
             <element signature="e#2634#2881#0" />
             <element signature="e#2961#3198#0" />
-            <element signature="e#3450#5082#0" />
-            <element signature="e#5153#6559#0" />
+            <element signature="e#3540#5172#0" />
+            <element signature="e#5243#6649#0" />
+            <element signature="e#6759#7914#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="118" column="28" selection-start-line="118" selection-start-column="28" selection-end-line="118" selection-end-column="28" />
         </state>
       </provider>
     </entry>
