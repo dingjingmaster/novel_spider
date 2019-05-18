@@ -136,12 +136,10 @@ class Mysql(object):
         msql = 'SELECT `nid` FROM `novel_info` WHERE book_url="{book_url}";'\
                 .format(book_url=self._connect.escape_string(url))
         try:
-            self._mutex.acquire()
             curosr = self._connect.cursor()
             curosr.execute(msql)
             self._connect.commit()
             result = curosr.fetchone()
-            self._mutex.release()
             if None is not result:
                 flag = True
                 nid = int(result[0])
@@ -159,12 +157,10 @@ class Mysql(object):
                '`hot`, `cp`, `lock` FROM `novel_info` WHERE book_url="{book_url}";'\
                 .format(book_url=self._connect.escape_string(url))
         try:
-            self._mutex.acquire()
             curosr = self._connect.cursor()
             curosr.execute(msql)
             self._connect.commit()
             result = curosr.fetchone()
-            self._mutex.release()
             if None is not result:
                 flag = True
                 nid, name, author, category, describe, complete, parser, book_url, img_url, img_content,\
@@ -195,12 +191,10 @@ class Mysql(object):
                     chapter_base_url=self._connect.escape_string(chapter_base_url),
                     create_time=create_time, update_time=update_time)
         try:
-            self._mutex.acquire()
             curosr = self._connect.cursor()
             curosr.execute(msql)
             self._connect.commit()
             novel_id = int(curosr.lastrowid)
-            self._mutex.release()
             if novel_id >= 0:
                 flag = True
                 log.info(name + '|' + author + '信息保存成功!')
@@ -223,11 +217,9 @@ class Mysql(object):
                         chapter_base_url=self._connect.escape_string(chapter_base_url),
                         update_time=update_time, book_url=self._connect.escape_string(book_url))
         try:
-            self._mutex.acquire()
             curosr = self._connect.cursor()
             curosr.execute(msql)
             self._connect.commit()
-            self._mutex.release()
             log.info(name + '|' + author + '信息更新成功！')
         except Exception as e:
             log.error('MySQL 执行错误: ' + str(e))
@@ -243,11 +235,9 @@ class Mysql(object):
                     parser=self._connect.escape_string(parser), name=self._connect.escape_string(name),
                     content=self._connect.escape_string(str(content)), update_time=update_time)
         try:
-            self._mutex.acquire()
             cursor = self._connect.cursor()
             cursor.execute(msql)
             self._connect.commit()
-            self._mutex.release()
             log.info(str(index) + '|' + name + '|' + chapter_url + ' 章节信息插入成功！')
         except Exception as e:
             log.error('插入章节' + name + '错误：' + str(e))
@@ -263,11 +253,9 @@ class Mysql(object):
                     content=self._connect.escape_string(content), update_time=update_time,
                     chapter_url=self._connect.escape_string(chapter_url))
         try:
-            self._mutex.acquire()
             curosr = self._connect.cursor()
             curosr.execute(msql)
             self._connect.commit()
-            self._mutex.release()
             log.info(str(index) + '|' + name + '|' + chapter_url + ' 章节信息更新成功！')
         except Exception as e:
             log.error('章节信息更新失败: ' + str(e))
@@ -286,11 +274,9 @@ class Mysql(object):
                             book_url=self._connect.escape_string(book_url),
                             update=int(time.time()))
             try:
-                self._mutex.acquire()
                 curosr = self._connect.cursor()
                 curosr.execute(msql)
                 self._connect.commit()
-                self._mutex.release()
             except Exception as e:
                 log.error('书籍封面页URL更新失败：: ' + str(e))
                 return False
@@ -311,11 +297,9 @@ class Mysql(object):
                         book_url=self._connect.escape_string(book_url),
                         update=int(time.time()))
             try:
-                self._mutex.acquire()
                 curosr = self._connect.cursor()
                 curosr.execute(msql)
                 self._connect.commit()
-                self._mutex.release()
             except Exception as e:
                 log.error('书籍封面页更新失败：: ' + str(e))
                 return False
@@ -336,11 +320,9 @@ class Mysql(object):
                         book_url=self._connect.escape_string(book_url),
                         update=int(time.time()))
             try:
-                self._mutex.acquire()
                 curosr = self._connect.cursor()
                 curosr.execute(msql)
                 self._connect.commit()
-                self._mutex.release()
             except Exception as e:
                 log.error('书籍章节页更新失败：: ' + str(e))
                 return False
@@ -361,11 +343,9 @@ class Mysql(object):
                         book_url=self._connect.escape_string(book_url),
                         update=int(time.time()))
             try:
-                self._mutex.acquire()
                 curosr = self._connect.cursor()
                 curosr.execute(msql)
                 self._connect.commit()
-                self._mutex.release()
             except Exception as e:
                 log.error('书籍章节页更新失败：: ' + str(e))
                 return False
