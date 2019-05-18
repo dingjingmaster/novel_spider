@@ -53,6 +53,7 @@ class Mysql(object):
         cursor = self._connect.cursor()
         try:
             cursor.execute(msql)
+            self._connect.commit()
             result = cursor.fetchone()
             if None is not result:
                 if int(result[1]) == 1:
@@ -68,6 +69,7 @@ class Mysql(object):
         cursor = self._connect.cursor()
         try:
             cursor.execute(msql)
+            self._connect.commit()
             result = cursor.fetchall()
             if None is not result:
                 for res in result:
@@ -87,6 +89,7 @@ class Mysql(object):
         cursor = self._connect.cursor()
         try:
             cursor.execute(msql)
+            self._connect.commit()
             result = cursor.fetchone()
             if None is not result:
                 if int(result[1]) == 1:
@@ -102,6 +105,7 @@ class Mysql(object):
         cursor = self._connect.cursor()
         try:
             cursor.execute(msql)
+            self._connect.commit()
             result = cursor.fetchone()
             if None is not result:
                 flag = True
@@ -117,6 +121,7 @@ class Mysql(object):
         cursor = self._connect.cursor()
         try:
             cursor.execute(msql)
+            self._connect.commit()
             result = cursor.fetchone()
             if (None is not result) and (result[1] is not None) and (result[1] != '') and (int(result[2]) >=  0):
                 flag = True
@@ -134,6 +139,7 @@ class Mysql(object):
             self._mutex.acquire()
             curosr = self._connect.cursor()
             curosr.execute(msql)
+            self._connect.commit()
             result = curosr.fetchone()
             self._mutex.release()
             if None is not result:
@@ -156,6 +162,7 @@ class Mysql(object):
             self._mutex.acquire()
             curosr = self._connect.cursor()
             curosr.execute(msql)
+            self._connect.commit()
             result = curosr.fetchone()
             self._mutex.release()
             if None is not result:
@@ -282,6 +289,7 @@ class Mysql(object):
                 self._mutex.acquire()
                 curosr = self._connect.cursor()
                 curosr.execute(msql)
+                self._connect.commit()
                 self._mutex.release()
             except Exception as e:
                 log.error('书籍封面页URL更新失败：: ' + str(e))
@@ -306,6 +314,7 @@ class Mysql(object):
                 self._mutex.acquire()
                 curosr = self._connect.cursor()
                 curosr.execute(msql)
+                self._connect.commit()
                 self._mutex.release()
             except Exception as e:
                 log.error('书籍封面页更新失败：: ' + str(e))
@@ -330,6 +339,7 @@ class Mysql(object):
                 self._mutex.acquire()
                 curosr = self._connect.cursor()
                 curosr.execute(msql)
+                self._connect.commit()
                 self._mutex.release()
             except Exception as e:
                 log.error('书籍章节页更新失败：: ' + str(e))
@@ -354,6 +364,7 @@ class Mysql(object):
                 self._mutex.acquire()
                 curosr = self._connect.cursor()
                 curosr.execute(msql)
+                self._connect.commit()
                 self._mutex.release()
             except Exception as e:
                 log.error('书籍章节页更新失败：: ' + str(e))
