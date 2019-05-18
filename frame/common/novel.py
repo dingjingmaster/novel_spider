@@ -126,6 +126,9 @@ class Novel:
     def has_chapter(self, url: str):
         return self._mysql.novel_chapter_exist(url)
 
+    def none_chapter(self, url: str):
+        return self._mysql.novel_chapter_none(url)
+
     def has_book(self, book_url: str):
         return self._mysql.novel_info_exist(book_url)
 
@@ -192,7 +195,7 @@ class Novel:
     """ 保存章节一章 """
     def save_novel_one_chapter(self, index, name, content, chapter_url) -> bool:
         novel_id = self.get_nid()
-        if novel_id <= 0:
+        if novel_id < 0:
             if self._mysql.novel_info_exist(self.get_book_url()):  # 小说信息存在，更新
                 # 获取小说 id 给 novel_info
                 flag, novel_id = self._mysql.get_novel_id_by_url(self.get_book_url())

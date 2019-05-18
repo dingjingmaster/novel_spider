@@ -50,7 +50,7 @@ class CCuu234Spider(Spider):
                 log.error('获取书籍章节信息出错：' + chapter_url_new)
             for index, name, chapter_url in parser.parse(text, parse_type=parser.PARSER_BOOK_CHAPTER_URL):
                 check_update_chapter += 1
-                if novel.has_chapter(chapter_url):
+                if not novel.none_chapter(chapter_url):
                     check_update_exit_chapter += 1
                     log.info(name + '|     ' + chapter_url + '     |' + name + ' 已经存在!')
                     continue

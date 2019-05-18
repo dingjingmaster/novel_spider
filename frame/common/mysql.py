@@ -123,7 +123,23 @@ class Mysql(object):
             cursor.execute(msql)
             self._connect.commit()
             result = cursor.fetchone()
-            if (None is not result) and (result[1] is not None) and (result[1] != '') and (int(result[2]) >=  0):
+            if (None is not result) and (result[1] is not None) and (result[1] != '') and (int(result[2]) >= 0):
+                flag = True
+        except Exception as e:
+            flag = False
+            log.error('SQL 执行错误: ' + str(e))
+        return flag
+
+    def novel_chapter_none(self, url: str) -> bool:
+        flag = False
+        msql = 'SELECT `cid`, `content`, `index` FROM `novel_chapter` WHERE chapter_url = "{chapter_url}";'\
+            .format(chapter_url=self._connect.escape_string(url))
+        cursor = self._connect.cursor()
+        try:
+            cursor.execute(msql)
+            self._connect.commit()
+            result = cursor.fetchone()
+            if (None is result) or (result[1] is None) or (result[1] == '') or (int(result[2]) < 0):
                 flag = True
         except Exception as e:
             flag = False
