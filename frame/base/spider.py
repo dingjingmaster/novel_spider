@@ -15,12 +15,16 @@ class Spider(object):
     def __init__(self):
         self._name = 'base_spider'
         self._webURL = ''
+        self._searchURL = ''                        # 根据关键词抓取模式
 
     def get_name(self):
         return self._name
 
     def get_web_url(self):
         return self._webURL
+
+    def set_search_url(self, url: str):
+        self._searchURL = url
 
     def set_book_url(self, book_url: str):
         if None is not book_url and '' != book_url:

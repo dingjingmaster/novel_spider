@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bba8c85-4912-46d7-aadb-ae5c539d773d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/install.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/keywords.kw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frame/base/spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/base/spider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/url/ccuu234.py" beforeDir="false" afterPath="$PROJECT_DIR$/url/ccuu234.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install.py" beforeDir="false" afterPath="$PROJECT_DIR$/install.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,28 +27,6 @@
     <expand />
     <select />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/main.py">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="304">
-                    <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-                    <folding>
-                      <element signature="e#49#78#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ExecutionTargetDialog">
     <checked>
       <node key="3632aa42-b643-48a4-ae11-97d969fe447f">
@@ -64,33 +41,26 @@
     <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/install.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frame/base/spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+            <state relative-caret-position="187">
+              <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
               <folding>
-                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#49#78#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/url/ccuu234.py">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frame/base/spider.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="40" column="28" lean-forward="true" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
-              <folding>
-                <element signature="e#49#78#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="323">
+              <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -149,16 +119,16 @@
         <option value="$PROJECT_DIR$/frame/spiders/ccuu234.py" />
         <option value="$PROJECT_DIR$/frame/common/novel.py" />
         <option value="$PROJECT_DIR$/frame/common/mysql.py" />
-        <option value="$PROJECT_DIR$/install.py" />
-        <option value="$PROJECT_DIR$/frame/base/spider.py" />
         <option value="$PROJECT_DIR$/url/ccuu234.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/install.py" />
+        <option value="$PROJECT_DIR$/frame/base/spider.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="172" />
-    <option name="y" value="115" />
+    <option name="x" value="259" />
+    <option name="y" value="81" />
     <option name="width" value="1638" />
     <option name="height" value="917" />
   </component>
@@ -176,11 +146,6 @@
             <path>
               <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
               <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
-              <item name="url" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -343,15 +308,15 @@
       <workItem from="1557920717465" duration="13182000" />
       <workItem from="1558057478939" duration="18771000" />
       <workItem from="1558226769668" duration="2622000" />
-      <workItem from="1558316646280" duration="2246000" />
+      <workItem from="1558316646280" duration="3147000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122822000" />
+    <option name="totallyTimeSpent" value="123723000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="172" y="115" width="1638" height="917" extended-state="0" />
+    <frame x="259" y="81" width="1638" height="917" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1818758" />
@@ -360,7 +325,7 @@
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.3298969" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3298969" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.2541507" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.25287357" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -434,13 +399,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frame/spiders/feidu_34fd.py" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -650,26 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/install.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frame/base/spider.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="40" column="28" lean-forward="true" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
-          <folding>
-            <element signature="e#49#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/url/ccuu234.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -679,11 +617,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="29" lean-forward="true" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        <state relative-caret-position="342">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#49#78#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/install.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/keywords.kw">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frame/base/spider.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+          <folding>
+            <element signature="e#49#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
         </state>
       </provider>
     </entry>
