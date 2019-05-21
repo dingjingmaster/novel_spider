@@ -31,6 +31,13 @@ class Spider(object):
         val = str(mid_start) + '|' + str(mid_end)
         self._seedURL[key] = val
 
+    def set_seed_urls(self, urls: list):
+        for info in urls:
+            for_url, mid_start, mid_end, back_url = info
+            key = for_url + '|' + back_url
+            val = str(mid_start) + '|' + str(mid_end)
+            self._seedURL[key] = val
+
     def get_book_list(self):
         if len(self._seedURL) <= 0:
             log.error(self._name + '由于未定义seed url 导致获取book list 失败！')
