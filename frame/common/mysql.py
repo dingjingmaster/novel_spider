@@ -370,5 +370,7 @@ class Mysql(object):
                 return False
         return True
 
+    """ 根据 小说名 + 作者名 获取关键字相关的数据库操作 """
+
 
 

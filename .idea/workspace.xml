@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7bba8c85-4912-46d7-aadb-ae5c539d773d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/keywords.kw" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frame/base/spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/base/spider.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.py" beforeDir="false" afterPath="$PROJECT_DIR$/install.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frame/common/mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/frame/common/mysql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/novel.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/novel.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/url/keywords.kw" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +24,12 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - novel@127.0.0.1" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="ExecutionTargetDialog">
@@ -47,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frame/base/spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+            <state relative-caret-position="472">
+              <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
               <folding>
                 <element signature="e#49#78#0" expanded="true" />
               </folding>
@@ -56,11 +61,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sql/novel.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+            <state relative-caret-position="491">
+              <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="372" column="34" selection-start-line="372" selection-start-column="34" selection-end-line="372" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -107,7 +121,6 @@
         <option value="$PROJECT_DIR$/frame/common/novelbean_bak.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3632aa42-b643-48a4-ae11-97d969fe447f/console.sql" />
         <option value="$PROJECT_DIR$/frame/web/ccuu234.py" />
-        <option value="$PROJECT_DIR$/sql/novel.sql" />
         <option value="$PROJECT_DIR$/frame/common/param.py" />
         <option value="$PROJECT_DIR$/frame/parser_factory.py" />
         <option value="$PROJECT_DIR$/frame/spider_factory.py" />
@@ -118,17 +131,18 @@
         <option value="$PROJECT_DIR$/frame/common/get.py" />
         <option value="$PROJECT_DIR$/frame/spiders/ccuu234.py" />
         <option value="$PROJECT_DIR$/frame/common/novel.py" />
-        <option value="$PROJECT_DIR$/frame/common/mysql.py" />
         <option value="$PROJECT_DIR$/url/ccuu234.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/install.py" />
         <option value="$PROJECT_DIR$/frame/base/spider.py" />
+        <option value="$PROJECT_DIR$/sql/novel.sql" />
+        <option value="$PROJECT_DIR$/frame/common/mysql.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="259" />
-    <option name="y" value="81" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="25" />
+    <option name="y" value="72" />
     <option name="width" value="1638" />
     <option name="height" value="917" />
   </component>
@@ -146,6 +160,17 @@
             <path>
               <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
               <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
+              <item name="frame" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="novel_spider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="novel_spider" type="462c0819:PsiDirectoryNode" />
+              <item name="frame" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -167,14 +192,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\novel_spider\frame\common" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GitHub\novel_spider\url" />
       <recent name="E:\novel_spider\frame\common" />
       <recent name="E:\novel_spider\frame\base" />
       <recent name="E:\novel_spider\frame" />
       <recent name="E:\novel_spider\frame\parser" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\novel_spider\frame\common" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -308,15 +334,15 @@
       <workItem from="1557920717465" duration="13182000" />
       <workItem from="1558057478939" duration="18771000" />
       <workItem from="1558226769668" duration="2622000" />
-      <workItem from="1558316646280" duration="3147000" />
+      <workItem from="1558316646280" duration="5526000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123723000" />
+    <option name="totallyTimeSpent" value="126102000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="259" y="81" width="1638" height="917" extended-state="0" />
+    <frame x="25" y="72" width="1638" height="917" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1818758" />
@@ -325,22 +351,22 @@
       <window_info anchor="bottom" id="Database Console" order="0" weight="0.3298969" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3298969" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.25287357" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.30779055" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32950193" />
       <window_info anchor="bottom" id="Database Changes" order="10" weight="0.22222222" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.33034572" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.3290653" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32950193" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32822478" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.17553866" />
+      <window_info anchor="right" id="Database" order="4" visible="true" weight="0.17553866" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,13 +577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sql/novel.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/python36/Lib/site-packages/requests/sessions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -582,13 +601,6 @@
           <folding>
             <element signature="e#49#60#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="124" column="38" selection-start-line="124" selection-start-column="38" selection-end-line="124" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -628,23 +640,37 @@
     <entry file="file://$PROJECT_DIR$/install.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/keywords.kw">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/url/keywords.kw">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frame/base/spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="40" column="42" lean-forward="true" selection-start-line="40" selection-start-column="42" selection-end-line="40" selection-end-column="42" />
+        <state relative-caret-position="472">
+          <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
           <folding>
             <element signature="e#49#78#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/sql/novel.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+        <state relative-caret-position="491">
+          <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frame/common/mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="372" column="34" selection-start-line="372" selection-start-column="34" selection-end-line="372" selection-end-column="34" />
         </state>
       </provider>
     </entry>

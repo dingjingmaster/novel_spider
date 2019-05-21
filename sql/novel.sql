@@ -32,3 +32,12 @@ CREATE TABLE IF NOT EXISTS `novel_chapter` (
     `update_time` INT NOT NULL,
     `lock` TINYINT DEFAULT 0                                            -- 0:未上锁；1:上锁
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 常见的书籍信息
+CREATE TABLE IF NOT EXISTS `novel_name_author`(
+    `kid` BIGINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(100),
+    `author` VARCHAR(100),
+    `other_info` TEXT,
+    UNIQUE KEY (`name`, `author`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
