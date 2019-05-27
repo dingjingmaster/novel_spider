@@ -26,7 +26,7 @@ class Get:
 		while tm <= self._try_time:
 			try:
 				s = requests.Session()
-				r = s.get(self._url, headers=self._header, timeout=3, allow_redirects=False)
+				r = s.get(self._url, headers=self._header, timeout=10, allow_redirects=False)
 				if r.status_code == requests.codes.ok:
 					doc = pyquery.PyQuery(r.text.encode(r.encoding))
 					text = doc.html()
@@ -46,7 +46,7 @@ class Get:
 		while tm <= self._try_time:
 			try:
 				s = requests.Session()
-				r = s.get(self._url, timeout=3, allow_redirects=False)
+				r = s.get(self._url, timeout=10, allow_redirects=False)
 				if r.status_code == requests.codes.ok:
 					binary = r.content
 					if None is not binary:

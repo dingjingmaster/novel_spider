@@ -64,26 +64,48 @@ class Parser(object):
 
     def parse(self, doc: str, rule='', parse_type=-1):
         if self.PARSER_BOOK_URL == parse_type:
+            if doc == '' or doc == None:
+                return (False, '')
             return self._parser_book_url(doc)
         elif self.PARSER_BOOK_IMG_URL == parse_type:
+            if doc == '' or doc == None:
+                return (False, '')
             return self._parser_book_img_url(doc)
         elif self.PARSER_BOOK_CHAPTER_BASE_URL == parse_type:
+            if doc == '' or doc == None:
+                return (False, '')
             return self._parser_book_chapter_base_url(doc)
         elif self.PARSER_BOOK_CHAPTER_URL == parse_type:
+            if doc == '' or doc == None:
+                return (False, '')
             return self._parser_book_chapter_url(doc)
         elif self.PARSER_BOOK_NAME == parse_type:
+            if doc == '' or doc == None:
+                return (False, '')
             return self._parser_book_name(doc)
         elif self.PARSER_BOOK_AUTHOR == parse_type:
+            if doc == '' or doc == None:
+                return (False, '')
             return self._parser_book_author(doc)
         elif self.PARSER_BOOK_CATEGORY == parse_type:
+            if doc == '' or doc == None:
+                return (False, '')
             return self._parser_book_category(doc)
         elif self.PARSER_BOOK_DESC == parse_type:
+            if doc == '' or doc == None:
+                return (False, '')
             return self._parser_book_desc(doc)
         elif self.PARSER_BOOK_STATUS == parse_type:
+            if doc == '' or doc == None:
+                return (False, '')
             return self._parser_book_status(doc)
         elif self.PARSER_BOOK_CHAPTER_CONTENT == parse_type:
+            if doc == '' or doc == None:
+                return (False, '')
             return self._parser_book_chapter_content(doc)
         else:
+            if doc == '' or doc == None:
+                return (False, '')
             return Parser._parser(doc, rule)
 
     PARSER_BOOK_URL = 1

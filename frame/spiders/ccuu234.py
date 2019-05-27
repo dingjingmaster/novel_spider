@@ -52,7 +52,7 @@ class CCuu234Spider(Spider):
                 check_update_chapter += 1
                 if not novel.none_chapter(chapter_url):
                     check_update_exit_chapter += 1
-                    log.info(name + '|     ' + chapter_url + '     |' + name + ' 已经存在!')
+                    # log.info(name + '|     ' + chapter_url + '     |' + name + ' 已经存在!')
                     continue
                 c = Spider.http_get(chapter_url)
                 if '' == text:
@@ -69,7 +69,7 @@ class CCuu234Spider(Spider):
                  '\n\t\t成功更新：' + str(check_update) +\
                  '\n\t\t已有章节：' + str(check_update_exit_chapter) +\
                  '\n\t\t成功更新章节：' + str(check_update_chapter))
-        time.sleep(3)
+        time.sleep(5)
         return True
 
     def run(self):
@@ -113,7 +113,7 @@ class CCuu234Spider(Spider):
                 for index, name, chapter_url in parser.parse(text, parse_type=parser.PARSER_BOOK_CHAPTER_URL):
                     # 测试是否已经包含章节信息
                     if novel.has_chapter(chapter_url):
-                        log.info(novel.get_name() + '|' + novel.get_author() + '|' + name + '已经存在!')
+                        # log.info(novel.get_name() + '|' + novel.get_author() + '|' + name + '已经存在!')
                         continue
                     content = ''
                     novel.save_novel_one_chapter(index, name, content, chapter_url)
